@@ -4,30 +4,30 @@
 
 Il progetto di laboratorio può essere svolto individualmente o in gruppo di al più 3 persone. **I membri di uno stesso gruppo devono appartenere tutti allo stesso turno di laboratorio**.
 
-ll progetto di laboratorio va consegnato mediante Git (vedi sotto) entro e non oltre la data della prova scritta che si intende sostenere. E' vietato sostenere la prova scritta in caso di mancata consegna del progetto di laboratorio. In caso di superamento della prova scritta, la prova orale (discussione del laboratorio) va sostenuta, previa prenotazione mediante apposita procedura che sarà messa a disposizione sulla pagina i-learn del corso, **nella medesima sessione della prova scritta superata** (si ricorda che le sessioni sono giugno-luglio 2019, settembre 2019, dicembre 2019 e gennaio-febbraio 2020).
+ll progetto di laboratorio va consegnato mediante Git (vedi sotto) entro e non oltre la data della prova scritta che si intende sostenere. E' vietato sostenere la prova scritta in caso di mancata consegna del progetto di laboratorio. In caso di superamento della prova scritta, la prova orale (discussione del laboratorio) va sostenuta, previa prenotazione mediante apposita procedura che sarà messa a disposizione sulla pagina i-learn del corso, **nella medesima sessione della prova scritta superata** (si ricorda che le sessioni sono giugno-luglio 2020, settembre 2020, dicembre 2020 e gennaio-febbraio 2021). **<DIEGO> Verificare: in particolare: ci sarà ancora la sessione di dicembre?</DIEGO>**
 
-Si noti che, per le sessioni di settembre 2019 e dicembre 2019 esiste una sola possibilità per la discussione del laboratorio. Ad esempio, se lo studente X supera la prova scritta a dicembre 2019, deve necessariamente sostenere la discussione di laboratorio con la prova orale di dicembre 2019 (non sarà possibile discutere a gennaio-febbraio 2020).
+Si noti che, per la sola sessione di giugno-luglio saranno previsti due appelli e, pertanto, esisteranno due possibilità per la discussione del laboratorio (primo o secondo appello della sessione). Nelle altre sessioni, l'appello è unico. Ad esempio, se la studentessa/lo studente X supera la prova scritta a dicembre 2020, deve necessariamente sostenere la discussione di laboratorio con la prova orale di dicembre 2020 (non sarà possibile discutere a gennaio-febbraio 2021). **<DIEGO> Alla fine, mi pare che l'unica sessione con due appelli sia quella di giugno-luglio...</DIEGO>**
 
 Esempio:
 
-- lo studente X sostiene la prova scritta nel primo appello di giugno
-- lo studente X deve assicurarsi che il progetto su GitLab, alla data della prova scritta che intende sostenere (in questo esempio, quella del primo appello di giugno), sia aggiornato alla versione che vuole presentare al docente di laboratorio;
-- se lo studente X supera la prova scritta nel primo appello di giugno, deve (pena la perdita del voto ottenuto nella prova scritta) iscriversi a uno degli appelli orali di giugno o luglio, prenotarsi su i-learn in uno degli slot messi a disposizione dal docente del turno di appartenenza e sostenere l'orale nello slot temporale prenotato.
+- la studentessa/lo studente X sostiene la prova scritta nel primo appello di giugno
+- la studentessa/lo studente X deve assicurarsi che il progetto su GitLab, alla data della prova scritta che intende sostenere (in questo esempio, quella del primo appello di giugno), sia aggiornato alla versione che vuole presentare al docente di laboratorio;
+- se la studentessa/lo studente X supera la prova scritta nel primo appello di giugno, deve (pena la perdita del voto ottenuto nella prova scritta) iscriversi a uno degli appelli orali di giugno o luglio, prenotarsi su i-learn in uno degli slot messi a disposizione dal docente del turno di appartenenza e sostenere l'orale nello slot temporale prenotato.
 
-Le regole riportate sopra si applicano al singolo studente. Per poter accedere alla discussione di laboratori è in ogni caso necessaria l'iscrizione alla prova orale corrispondente su myunito.
+Le regole riportate sopra si applicano alla singola studentessa/al singolo studente. Per poter accedere alla discussione di laboratori è in ogni caso necessaria l'iscrizione alla prova orale corrispondente su myunito.
 
-Studenti diversi, appartenenti allo stesso gruppo, possono sostenere la prova **scritta** nello stesso appello o in appelli diversi. Se studenti diversi, appartenenti allo stesso gruppo, superano la prova scritta nello stesso appello, devono sostenere l' **orale** nello stesso appello orale. Se studenti diversi, appartenenti allo stesso gruppo, superano la prova scritta in appelli diversi, possono sostenere l'orale in appelli diversi.
+Studentesse/studenti diversi, appartenenti allo stesso gruppo, possono sostenere la prova **scritta** nello stesso appello o in appelli diversi. Se studentesse/studenti diversi, appartenenti allo stesso gruppo, superano la prova scritta nello stesso appello, **devono** sostenere l' **orale** nello stesso appello orale. Se studentesse/studenti diversi, appartenenti allo stesso gruppo, superano la prova scritta in appelli diversi, **possono** sostenere l'**orale** in appelli diversi.
 
-Ad esempio, si consideri un gruppo di laboratorio costituito dagli studenti X, Y e Z, e si supponga che i soli X e Y sostengano la prova scritta nel primo appello di giugno, X con successo, mentre Y con esito insufficiente. Devono essere rispettate le seguenti condizioni:
+Ad esempio, si consideri un gruppo di laboratorio costituito dalle studentesse/dagli studenti X, Y e Z, e si supponga che i soli X e Y sostengano la prova scritta nel primo appello di giugno, X con successo, mentre Y con esito insufficiente. Devono essere rispettate le seguenti condizioni:
 
 - alla data della prova scritta del primo appello di giugno, il progetto di laboratorio del gruppo deve essere aggiornato alla versione che si intende presentare;
 - il solo studente X deve sostenere la prova orale nella sessione giugno-luglio,  procedendo come indicato nell'esempio riportato sopra, mentre Y e Z sosterranno la discussione quando avranno superato la prova scritta.
-- Supponiamo che Y e Z superino la prova scritta nell'appello di gennaio: essi dovranno sostenere la prova orale in uno stesso appello della stessa sessione di gennaio-febbraio
+- Supponiamo che Y e Z superino la prova scritta nell'appello di gennaio: essi dovranno sostenere la prova orale nella sessione di gennaio-febbraio
 - Gli studenti Y e Z dovranno, di norma, discutere la stessa versione del progetto di laboratorio che ha discusso lo studente X; i.e., eventuali modifiche al laboratorio successive alla discussione di X dovranno essere debitamente documentate (i.e., il log delle modifiche dovrà comparire su GitLab) e motivate.
 
-**Validità del progetto di laboratorio** : le specifiche per il progetto di laboratorio descritte in questo documento resteranno valide fino all'ultimo appello della sessione gennaio-febbraio relativa al corrente anno accademico **(vale a dire, quella di gennaio-febbraio 2020)** e non oltre!. Gli appelli delle sessioni successive a questa dovranno essere sostenuti sulla base delle specifiche che verranno descritte nella prossima edizione del laboratorio di algoritmi.
+**Validità del progetto di laboratorio** : le specifiche per il progetto di laboratorio descritte in questo documento resteranno valide fino all'ultimo appello della sessione gennaio-febbraio relativa al corrente anno accademico **(vale a dire, quella di gennaio-febbraio 2021)** e non oltre!. Gli appelli delle sessioni successive a questa dovranno essere sostenuti sulla base delle specifiche che verranno descritte nella prossima edizione del laboratorio di algoritmi.
 
-Come unica eccezione si ammetterà, per il solo primo appello della sessione giugno-luglio dell'anno accademico successivo a quello corrente (vale a dire per il primo appello di giugno 2020), che venga discusso il laboratorio presentato in questo documento **a patto che i commit su gitlab dimostrino che il lavoro è stato completato entro la sessione di gennaio-febbraio relativa all'anno accademico corrente**.
+Come unica eccezione si ammetterà, per il solo primo appello della sessione giugno-luglio dell'anno accademico successivo a quello corrente (vale a dire per il primo appello di giugno 2021), che venga discusso il laboratorio presentato in questo documento **a patto che i commit su gitlab dimostrino che il lavoro è stato completato entro la sessione di gennaio-febbraio relativa all'anno accademico corrente**.
 
 # Indicazioni generali e suggerimenti
 
@@ -51,25 +51,28 @@ Si rammenta che la valutazione del progetto di laboratorio considererà anche l'
 Gli esercizi vanno implementati utilizzando il linguaggio C o Java come precisato di seguito:
 
 - Esercizio 1: C
-- Esercizio 2: C o Java a discrezione dello studente
-- Esercizio 3: Java
-- Esercizio 4: Java
+- Esercizio 2: Java
+- Esercizio 3: C
+- Esercizio 4: C o Java a discrezione dello studente
 
-Come detto, gli esercizi chiedono di realizzare strutture generiche. Seguono alcuni suggerimenti sul modo di realizzarle nei due linguaggi accettati.
+Come indicato sotto, alcuni esercizi chiedono di implementare codice generico. Seguono alcuni suggerimenti sul modo di realizzare codice con questa caratteristica nei due linguaggi accettati.
 
-**Nota importante** : Con "strutture dati generiche" si fa riferimento al fatto che le strutture dati realizzate devono poter essere utilizzate con tipi di dato non noti a tempo di compilazione.
+**Nota importante** : Con "codice generico" si fa riferimento al fatto che  tale codice deve poter essere eseguito con tipi di dato non noti a tempo di compilazione.
 
-**Suggerimenti (C)**: Nel caso del C, è necessario capire come meglio approssimare l'idea di strutture generiche utilizzando quanto permesso dal linguaggio. Un approccio comune è far sì che le funzioni che manipolano le strutture dati prendano in input puntatori a void e utilizzino qualche funzione fornita dall'utente per accedere alle componenti necessarie.
+**Suggerimenti (C)**: Nel caso del C, è necessario capire come meglio approssimare l'idea di codice generico utilizzando quanto permesso dal linguaggio. Un approccio comune è far sì che le funzioni e le procedure presenti nel codice prendano in input puntatori a void e utilizzino qualche funzione fornita dall'utente per accedere alle componenti necessarie.
 
 Nota: chi è in grado di realizzare tipi di dato astratto tramite tipi opachi è incoraggiato a procedere in questa direzione.
 
-**Suggerimenti (Java)**: Sebbene in Java la soluzione più in linea con il moderno utilizzo del linguaggio richiederebbe la creazione di classi parametriche, tutte le scelte implementative (compresa la decisione di usare o meno classi parametriche) sono lasciate agli studenti. Inoltre, è possibile (e consigliato) usare gli ArrayList invece degli array nativi al fine di semplificare l'implementazione delle strutture generiche.
+**Suggerimenti (Java)**: Sebbene in Java la soluzione più in linea con il moderno utilizzo del linguaggio richiederebbe la creazione di classi parametriche, tutte le scelte implementative (compresa la decisione di usare o meno classi parametriche) sono lasciate agli studenti. Inoltre, è possibile (e consigliato) usare gli ArrayList invece degli array nativi al fine di semplificare la realizzazione di codice generico.
 
 ## Uso di librerie esterne e/o native del linguaggio scelto
 
-Nello sviluppo in Java l'uso di ArrayList, ove non escluso esplicitamente dalla consegna dell'esercizio, è da ritenersi possibile.
+È vietato (sia nello sviluppo in Java che in quello in C) l'uso di strutture dati native del linguaggio scelto o offerte da librerie esterne, quando la loro realizzazione è richiesta da uno degli esercizi proposti.
 
-È, invece, sempre proibito (sia nello sviluppo in Java che in quello in C) l'uso di strutture dati native del linguaggio scelto o offerte da librerie esterne, quando la loro realizzazione è richiesta da uno degli esercizi proposti.
+È, invece, possibile l'uso di strutture datinative del linguaggio o offerte da librerie esterne, se la loro realizzazione non è richiesta da uno degli esercizi proposti.
+
+Es.: nello sviluppo in Java, l'uso di ArrayList è da ritenersi possibile, se nessun eseercizio chiede la realizzazione in Java di un array dinamico.
+
 
 ## Qualità dell'implementazione
 
@@ -96,16 +99,11 @@ Per "buona qualità" intendiamo codice ben modularizzato, ben commentato e ben t
 
 pandoc README.md -o README.pdf
 
-**Importante**: Tutti gli esercizi richiedono almeno di sviluppare una struttura dati e/o un algoritmo. Nello sviluppare questa parte, si deve assumere di stare sviluppando una libreria generica intesa come fondamento di futuri programmi. Non è pertanto lecito fare assunzioni semplificative legate ai particolari usi che di tale libreria generica gli esercizi potrebbero richiedere di implementare; in generale, l'implementazione della libreria generica non deve essere influenzata in alcun modo dagli usi di essa eventualmente richiesti negli esercizi (ad esempio, se un esercizio dovesse richiedere l'implementazione della struttura dati grafo e quello stesso o un altro esercizio dovesse richiedere l'implementazione, a partire da tale struttura dati, di un algoritmo per il calcolo delle componenti connesse di un grafo, l'implementazione della struttura dati non dovrebbe contenere elementi – variabili, procedure, funzioni, metodi, ecc. – eventualmente utili per il calcolo delle componenti connesse, ma non essenziali alla struttura dati; analogamente, se un esercizio dovesse richiedere di operare su grafi con nodi di tipo stringa, l'implementazione della struttura dati grafo dovrebbe restare generica e non potrebbe quindi assumere per i nodi il solo tipo stringa).
+**Importante**: Gli esercizi 1 e 3 richiedono (fra le altre cose) di sviluppare codice generico. Nello sviluppare questa parte, si deve assumere di stare sviluppando una libreria generica intesa come fondamento di futuri programmi. Non è pertanto lecito fare assunzioni semplificative legate ai particolari usi che di tale libreria generica gli esercizi potrebbero richiedere di implementare; in generale, l'implementazione della libreria generica non deve essere influenzata in alcun modo dagli usi di essa eventualmente richiesti negli esercizi (ad esempio, se un esercizio dovesse richiedere l'implementazione della struttura dati grafo e quello stesso o un altro esercizio dovesse richiedere l'implementazione, a partire da tale struttura dati, di un algoritmo per il calcolo delle componenti connesse di un grafo, l'implementazione della struttura dati non dovrebbe contenere elementi – variabili, procedure, funzioni, metodi, ecc. – eventualmente utili per il calcolo delle componenti connesse, ma non essenziali alla struttura dati; analogamente, se un esercizio dovesse richiedere di operare su grafi con nodi di tipo stringa, l'implementazione della struttura dati grafo dovrebbe restare generica e non potrebbe quindi assumere per i nodi il solo tipo stringa).
 
+Invece, laddove fosse richiesta anche l'implementazione di un'applicazione che usa una libreria generica per risolvere una classe di problemi particolari (ad esempio, un'applicazione che usa la libreria generica dei grafi per rappresentare il grafo delle relazioni di un social network e calcolare le componenti connesse), si potrà pensare a tale caso d'uso della libreria generica come ad un'istanziazione su una particolare classe di problemi e, quindi, si potrà basare l'implementazione sulle caratteristiche particolari di tale classe (ed. esempio, se sensate, si potranno - nella sola applicazione, non nella libreria, invece, dovrà restare generica - fare le assunzioni che i nodi siano stringhe, che gli archi non abbiano etichette, ecc.).
 
 **Importante**: In sede di discussione d'esame, sarà facoltà del docente chiedere di eseguire gli algoritmi implementati su dati forniti dal docente stesso. Nel caso questi dati siano memorizzati su file, questi saranno dei csv con la medesima struttura dei dataset forniti e descritti nel testo dell'esercizio. I codici sviluppati dovranno consentire un rapido e semplice adattamento agli input forniti: ad esempio, una buona implementazione consentirà di inserire in input il nome del file su cui eseguire il test, mentre una peggiore richiederà di modificare il codice sorgente e una successiva compilazione a fronte della sola modifica del nome del file contenente il dataset.
-
-
-In alcuni esercizi si ribadisce la necessità di implementare una versione generale della libreria. Ciò non vuol dire che dove questo non sia specificato esplicitamente sia lecita una implementazione meno generale.
-
-Inoltre tutti gli esercizi chiedono di implementare un programma che sfrutta la libreria realizzata. Questa parte degli esercizi (e solo questa) può essere pensata come una istanziazione particolare di un problema e può quindi fare leva sulle caratteristiche particolari del problema (es., può assumere che i dati siano di un particolare tipo).
-
 
 ## Unit Testing
 
@@ -113,62 +111,57 @@ Come indicato esplicitamente nei testi degli esercizi, il progetto di laboratori
 
 Si rammenta, però, che il focus del laboratorio è l'implementazione di strutture dati e algoritmi. Relativamente agli unit-test sarà quindi sufficiente che gli studenti dimostrino di averne colto il senso e di saper realizzare una suite di test sufficiente a coprire i casi più comuni (compresi, in particolare, i casi limite).
 
-## Esercizio 1 
+**IMPORTANTE: gli studenti che hanno nel piano di studi l'insegnamento di Algoritmi con un numero di CFU differente dal quello della corrente edizione (es. 12 CFU) sono pregati di contattare il docente al più presto, al fine di concordare un programma d'esame commisurato si CFU **<DIEGO>Forse, val la pena precisarlo...</DIEGO>**
+
+## Esercizio 1
 
 ### Linguaggio richiesto: C
 
 ### Testo
 
-Si consideri il tipo di dato astratto Lista, definito nei termini delle seguenti operazioni:
+Implementare una libreria che offre i seguenti algoritmi di ordinamento:
 
-- Verifica se la lista è vuota in O(1)
-- Inserimento in coda alla lista in O(1) (tempo ammortizzato)
-- Inserimento di un elemento nella posizione i-esima della lista in O(n)
-- Cancellazione dell'elemento in coda alla lista in O(1)
-- Cancellazione dell'elemento in posizione i-esima nella lista in O(n)
-- Recupero dell'elemento in posizione i-esima nella lista (senza cancellare l'elemento dalla lista) in O(n)
-- Recupero del numero di elementi della lista in O(1) 
-- Creazione di un iteratore per la lista in O(1)
+- Insertion Sort
+- Quicksort
 
-La lista può contenere oggetti di tipo qualunque e non noto a priori.
-
-Un iteratore è un tipo di dato astratto che permette di iterare su un container di qualche tipo. Un iteratore deve mettere a disposizione le seguenti operazioni:
-
-- Verifica se l'iteratore è ancora valido in O(1) (un iteratore è inizializzato in modo da fare riferimento alla testa della lista e diventa invalido quando viene spostato oltre la fine della lista).
-- Recupera l'elemento corrente in O(1)
-- Sposta l'iteratore all'elemento successivo in O(1)
-
-
-Si realizzino in C due implementazioni alternative per il tipo di dato astratto Lista (e, conseguentemente per l'iteratore su di essa).
-
-In particolare:
-
-- entrambe le implementazioni devono offrire:
-    - una funzione per creare una lista vuota;
-    - una per distruggerla (con conseguente deallocazione della memoria associata);
-    - una funzione per distruggere un iteratore (con conseguente deallocazione della memoria associata);
-    - tutte e sole le operazioni specificate sopra; tali operazioni devono essere realizzate tramite funzioni aventi la stessa signature in entrambe le librerie;
-- una implementazione deve realizzare le liste con array dinamici (cioè ridimensionabili); l'altra implementazione deve realizzare le liste tramite record collegati.
-
-
+Il codice che implementa ciascun algoritmo deve essere generico. Inoltre, ogni algoritmo deve permettere di specificare (cioè deve accettare in input) il criterio secondo cui ordinare i dati.
 
 ### Unit Testing
 
 Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel documento Unit Testing.
 
-### Uso delle librerie implementate
+### Uso della libreria di ordinamento implementata
 
-Implementare un algoritmo _merge_ che accetta in input un criterio di ordinamento e due liste ordinate secondo tale criterio di ordinamento e restituisce in output una nuova lista, corrispondente alla fusione delle due liste di input e ordinata secondo lo stesso criterio.
+Il file `records.csv` che potete trovare seguendo il path
+`/usr/NFS/Linux/labalgoritmi/datasets/` contiene 20 milioni di record da ordinare.
+Ogni record è descritto su una riga e contiene i seguenti campi:
 
-L'algoritmo implementato deve poter essere eseguito \*senza modifiche\* su ciascuna delle due implementazioni per il tipo di dato astratto Lista prodotte secondo le specifiche riportate sopra.
+- id: (tipo intero) identificatore univoco del record;
+- field1: (tipo stringa) contiene parole estratte dalla divina commedia,
+  potete assumere che i valori non contengano spazi o virgole;
+- field2: (tipo intero);
+- field3: (tipo floating point);
 
-### Unit Testing
+Il formato è un CSV standard: i campi sono separati da virgole; i record sono
+separati da "\n".
 
-Implementare gli unit-test per la funzione che implementa _merge_ secondo le indicazioni suggerite nel documento Unit Testing.
+Usando ciascuno degli algoritmi implementati, si ordinino i *record* (non è sufficiente ordinare i
+singoli campi) contenuti nel file `records.csv` in ordine non decrescente secondo i valori contenuti
+nei tre campi "field" (cioè, per ogni algoritmo, è necessario ripetere l'ordinamento tre volte, una
+volta per ciascun campo).
+
+Si misurino i tempi di risposta e si produca una breve relazione in cui si riportano i risultati
+ottenuti insieme a un loro commento. Nel caso l'ordinamento si  protragga per più di 10 minuti
+potete interrompere l'esecuzione e riportare un fallimento dell'operazione. I risultati sono quelli
+che vi sareste aspettati? Se sì, perché? Se no, fate delle ipotesi circa il motivo per cui gli
+algoritmi non funzionano come vi aspettate, verificatele e riportate quanto scoperto nella
+relazione.
+
+**IL FILE `records.csv` NON DEVE ESSERE OGGETTO DI COMMIT SU GIT!**
 
 ## Esercizio 2
 
-### Linguaggio richiesto: C o Java
+### Linguaggio richiesto: Java
 
 ### Testo
 
@@ -185,7 +178,7 @@ Si consideri il problema di determinare la distanza di edit tra due stringhe (Ed
 - se $|s1|$ = 0, allora $\mathrm{edit\_distance}(s1,s2) = |s2|$;
 - se $|s2|$ = 0, allora $\mathrm{edit\_distance}(s1,s2) = |s1|$;
 - altrimenti, siano:
-  - $d_{\mathrm{no-op}} = 
+  - $d_{\mathrm{no-op}} =
         \begin{cases}
         \mathrm{edit\_distance}(\mathrm{rest}(s1),\mathrm{rest}(s2)) & \mathrm{se\ } s1[0]=s2[0] \\
         \infty & \mathrm{altrimenti}
@@ -207,13 +200,13 @@ Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel 
 
 ### Uso delle funzioni implementate
 
-Il file dictionary.txt che potete trovare seguendo il path
+Il file `dictionary.txt` che potete trovare seguendo il path
 
 /usr/NFS/Linux/labalgoritmi/datasets/
 
-(in laboratorio von Neumann, selezionare il disco Y) contiene l'elenco (di una parte significativa) delle parole italiane. Le parole sono scritte di seguito, ciascuna su una riga.
+contiene l'elenco (di una parte significativa) delle parole italiane. Le parole sono scritte di seguito, ciascuna su una riga.
 
-Il file correctme.txt contiene una citazione di John Lennon. Il file contiene alcuni errori di battitura.
+Il file `correctme.txt` contiene una citazione di John Lennon. La citazione presenta alcuni errori di battitura.
 
 Si implementi un'applicazione che usa la funzione edit\_distance\_dyn per determinare, per ogni parola w in correctme.txt, la lista di parole in dictionary.txt con edit distance minima da w. Si sperimenti il funzionamento dell'applicazione e si riporti in una breve relazione (circa una pagina) i risultati degli esperimenti.
 
@@ -221,11 +214,29 @@ Si implementi un'applicazione che usa la funzione edit\_distance\_dyn per determ
 
 ## Esercizio 3
 
-### Linguaggio richiesto: Java
+### Linguaggio richiesto: C
 
 ### Testo
 
-Si implementi la struttura dati Union-Find Set. La struttura dati deve permettere di inserire oggetti di tipo generico e non deve prevedere alcuna cardinalità massima per l'insieme iniziale di elementi.
+Si implementi una libreria per la struttura dati Hash Map, tenendo conto delle seguenti indicazioni:
+- Una Hash Map rappresenta un insieme di associazioni del
+tipo <k,v>, dove k è una chiave e v è il valore ad essa associato;
+- in una Hash Map, non possono esservi chiavi ripetute;
+- l'implementazione sfrutta un meccanismo di hashing;
+- L'implementazione deve offrire le seguenti operazioni:
+  - creazione di una Hash Map vuota;
+  - distruzione di una Hash Map (con conseguente deallocazione della memoria associata);
+  - verifica se una  Hash Map è vuota;
+  - recupero del numero di associazioni presenti in una Hash Map;
+  - cancellazione di tutte le associazioni di una Hash Map;
+  - verifica se la chiave specificata è presente in una Hash Map;
+  - verifica se il valore specificato è presente in una Hash Map;
+  - inserimento in una Hash Map di un'associazione di tipo <k,v>;
+  - recupero da una Hash Map dell'eventuale valore, associato alla chiave specificata
+  - cancellazione da una Hash Map dell'eventuale associazione contenente la chiave specificata
+  - recupero dell'insieme delle chiavi presenti in una Hash Map
+-Il codice che implementa la Hash Map deve essere generico (nel senso che deve consentire di inserire associazioni <k,v> di cui non è noto a tempo di compilazione né il tipo della chiave k, né quello del valore v) e non deve assumere alcuna cardinalità massima per l'insieme di associazioni
+che possono essere ospitate nella Hash Map.
 
 ### Unit Testing
 
@@ -233,81 +244,19 @@ Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel 
 
 ## Esercizio 4
 
-### Linguaggio richiesto: Java
+### Linguaggio richiesto: C o Java
 
 ### Testo
 
-Si implementi una libreria che realizza la struttura dati Grafo in modo che **sia ottimale per dati sparsi** 
-(IMPORTANTE: le scelte implementative che farete dovranno essere giustificate in relazione alle nozioni presentate 
-durante le lezioni in aula). La struttura deve consentire di rappresentare sia grafi diretti che grafi non diretti 
-(suggerimento:  un grafo non diretto può essere rappresentato usando un'implementazione per grafi diretti modificata 
-per garantire che, per ogni arco (a,b), etichettato w, presente nel grafo, sia presente nel grafo anche l'arco (b,a), 
-etichettato w. Ovviamente, il grafo dovrà mantenere l'informazione che specifica se esso è un grafo diretto o non diretto.).
-
-L'implementazione deve essere generica sia per quanto riguarda il tipo dei nodi, sia per quanto riguarda le etichette 
-degli archi.
-
-La struttura dati implementata dovrà offrire (almeno) le seguenti operazioni (accanto ad ogni operazione è specificata la 
-complessità richiesta; n può indicare il numero di nodi o il numero di archi, a seconda del contesto):
-
-- Creazione di un grafo vuoto – O(1)
-- Aggiunta di un nodo – O(1)
-- Aggiunta di un arco – O(1)
-- Verifica se il grafo è diretto – O(1)
-- Verifica se il grafo contiene un dato nodo – O(1)
-- Verifica se il grafo contiene un dato arco – O(1) quando il grafo è veramente sparso
-- Cancellazione di un nodo – O(n)
-- Cancellazione di un arco – O(1) quando il grafo è veramente sparso
-- Determinazione del numero di nodi – O(n)
-- Determinazione del numero di archi – O(n)
-- Recupero dei nodi del grafo – O(n)
-- Recupero degli archi del grafo – O(n)
-- Recupero nodi adiacenti di un dato nodo – O(n)
-- Recupero etichetta associata a una coppia di nodi – O(1) quando il grafo è veramente sparso.
+BOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBO
+BOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBO
 
 ### Unit Testing
 
-Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel documento Unit Testing.
+BOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBO
+BOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBO
 
 ### Uso della libreria che implementa la struttura dati Grafo
 
-Si implementi l'algoritmo di Kruskal per la determinazione della minima foresta  ricoprente di un grafo.
-
-L'implementazione dell'algoritmo di Kruskal dovrà utilizzare la struttura dati Union-Find Set implementata 
-nell' esercizio precedente.
-
-N.B. Nel caso in cui il grafo sia costituito da una sola componente connessa, 
-l'algoritmo restituirà un albero; nel caso in cui, invece, vi siano più componenti connesse, 
-l'algoritmo restituirà una foresta costituita dai minimi alberi ricoprenti di ciascuna componente connessa.
-
-### Uso delle librerie che implementano la struttura dati Grafo e l'algoritmo di Kruskal
-
-La struttura dati Grafo e l'algoritmo di Kruskal dovranno essere utilizzati con i dati contenuti nel file italian\_dist\_graph.csv.
-
-Il file italian\_dist\_graph.csv che potete recuperare seguendo il path
-
-/usr/NFS/Linux/labalgoritmi/datasets/
-
-(in laboratorio von Neumann, selezionare il disco Y) contiene le distanze in metri tra varie località 
-italiane e una frazione delle località a loro più vicine. 
-Il formato è un CSV standard: i campi sono separati da virgole; i record sono separati dal carattere di fine 
-riga (\\n).
-
-Ogni record contiene i seguenti dati:
-
-- località 1: (tipo stringa) nome della località "sorgente". La stringa può   contenere spazi, non può contenere virgole;
-- località 2: (tipo stringa) nome della località "destinazione". La stringa  può contenere spazi, non può contenere virgole;
-- distanza: (tipo float) distanza in metri tra le due località.
-
-**Note** :
-
-- potete interpretare le informazioni presenti nelle righe del file come   archi non diretti (i.e., probabilmente vorrete inserire nel vostro grafo sia l'arco di andata che quello di ritorno a fronte di ogni riga letta).
-- il file è stato creato a partire da un dataset poco accurato. I dati riportati contengono inesattezze e imprecisioni.
-
-**IL FILE italian\_dist\_graph.csv NON DEVE ESSERE OGGETTO DI COMMIT SU GIT!**
-
-**Controlli**
-
-Un'implementazione corretta dell'algoritmo di Kruskal, eseguita sui dati 
-contenuti nel file italian\_dist\_graph.csv, dovrebbe determinare una minima foresta ricoprente con 
-18.640 nodi, 18.637 archi (non orientati) e di peso complessivo di circa 89.939,913 Km.
+BOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBO
+BOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBO
