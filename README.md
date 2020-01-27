@@ -4,9 +4,9 @@
 
 Il progetto di laboratorio può essere svolto individualmente o in gruppo di al più 3 persone. **I membri di uno stesso gruppo devono appartenere tutti allo stesso turno di laboratorio**.
 
-ll progetto di laboratorio va consegnato mediante Git (vedi sotto) entro e non oltre la data della prova scritta che si intende sostenere. E' vietato sostenere la prova scritta in caso di mancata consegna del progetto di laboratorio. In caso di superamento della prova scritta, la prova orale (discussione del laboratorio) va sostenuta, previa prenotazione mediante apposita procedura che sarà messa a disposizione sulla pagina i-learn del corso, **nella medesima sessione della prova scritta superata** (si ricorda che le sessioni sono giugno-luglio 2020, settembre 2020, dicembre 2020 e gennaio-febbraio 2021). **<DIEGO> Verificare: in particolare: ci sarà ancora la sessione di dicembre?</DIEGO>**
+ll progetto di laboratorio va consegnato mediante Git (vedi sotto) entro e non oltre la data della prova scritta che si intende sostenere. E' vietato sostenere la prova scritta in caso di mancata consegna del progetto di laboratorio. In caso di superamento della prova scritta, la prova orale (discussione del laboratorio) va sostenuta, previa prenotazione mediante apposita procedura che sarà messa a disposizione sulla pagina i-learn del corso, **nella medesima sessione della prova scritta superata** (si ricorda che le sessioni sono giugno-luglio 2020, settembre 2020, dicembre 2020 e gennaio-febbraio 2021). **DIEGO Verificare: in particolare: ci sarà ancora la sessione di dicembre?/DIEGO**
 
-Si noti che, per la sola sessione di giugno-luglio saranno previsti due appelli e, pertanto, esisteranno due possibilità per la discussione del laboratorio (primo o secondo appello della sessione). Nelle altre sessioni, l'appello è unico. Ad esempio, se la studentessa/lo studente X supera la prova scritta a dicembre 2020, deve necessariamente sostenere la discussione di laboratorio con la prova orale di dicembre 2020 (non sarà possibile discutere a gennaio-febbraio 2021). **<DIEGO> Alla fine, mi pare che l'unica sessione con due appelli sia quella di giugno-luglio...</DIEGO>**
+Si noti che, per la sola sessione di giugno-luglio saranno previsti due appelli e, pertanto, esisteranno due possibilità per la discussione del laboratorio (primo o secondo appello della sessione). Nelle altre sessioni, l'appello è unico. Ad esempio, se la studentessa/lo studente X supera la prova scritta a dicembre 2020, deve necessariamente sostenere la discussione di laboratorio con la prova orale di dicembre 2020 (non sarà possibile discutere a gennaio-febbraio 2021). **DIEGO Alla fine, mi pare che l'unica sessione con due appelli sia quella di giugno-luglio.../DIEGO**
 
 Esempio:
 
@@ -111,7 +111,7 @@ Come indicato esplicitamente nei testi degli esercizi, il progetto di laboratori
 
 Si rammenta, però, che il focus del laboratorio è l'implementazione di strutture dati e algoritmi. Relativamente agli unit-test sarà quindi sufficiente che gli studenti dimostrino di averne colto il senso e di saper realizzare una suite di test sufficiente a coprire i casi più comuni (compresi, in particolare, i casi limite).
 
-**IMPORTANTE: gli studenti che hanno nel piano di studi l'insegnamento di Algoritmi con un numero di CFU differente dal quello della corrente edizione (es. 12 CFU) sono pregati di contattare il docente al più presto, al fine di concordare un programma d'esame commisurato si CFU **<DIEGO>Forse, val la pena precisarlo...</DIEGO>**
+**IMPORTANTE: gli studenti che hanno nel piano di studi l'insegnamento di Algoritmi con un numero di CFU differente dal quello della corrente edizione (es. 12 CFU) sono pregati di contattare il docente al più presto, al fine di concordare un programma d'esame commisurato si CFU **DIEGO Forse, val la pena precisarlo.../DIEGO**
 
 ## Esercizio 1
 
