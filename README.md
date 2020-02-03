@@ -246,23 +246,26 @@ Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel 
 
 ### Testo
 
-You are given a connected graph with $N$ nodes and $N-1$ bidirectional edges. Each edge has an integer weight $W$ associated to it. 
-Given $Q$ query edges, write an algorithm that checks, for each one of the queries, if the total weight of the network can be improved (decreased) by swapping any edge in the network with the query edge and leaving a network that is still connected. For each query output `YES` if it improves the network, `No` if it does not. Each query has to be dealt independently from the others.
+Si consideri un grafo connesso con $N$ nodi e $N-1$ archi bidirezionali pesati con un peso intero $W$. Ci si pone il problema di trovare un algoritmo efficiente per rispondere a $Q$ distinte interrogazioni. 
 
-The input files start with a line containing the number $N$ of nodes in the network followed by $N-1$ lines each one containing $3$ integers denoting the $N-1$ edges (the first two integers denote the edge end points, the third integer is the weight of the edge). The files continue with a line containing the number $Q$ of edge queries followed by $Q$ lines containing $3$ integers each (same format as the graph edges).
+Una interrogazione consiste in un nuovo arco pesato $q$. L'algoritmo deve rispondere `YES` se $q$ permette di ridurre il peso complessivo del grafo, `NO` altrimenti. L'arco $q$ soddisfa questa condizione se esiste un arco $e$ tale per cui sia possibile sostituire $q$ a $e$ lasciando il grafo connesso e diminuendone il peso complessivo. Ogni interrogazione deve essere risolta in modo indipendentemente dalle altre (i.e., il grafo di partenza è sempre lo stesso).
 
-Your output should consist of $Q$ lines each one containing a `YES` or `NO` depending on whether the corresponding query edge improves the original network.
+I file di input iniziano con una linea contenente il numero $N$ di nodi del grafo a cui seguono $N-1$ linee contenenti gli archi. Ogni linea che specifica un arco contiene `3` interi separati da spazi: il nodo sorgente, il nodo destinazione e il peso dell'arco.
 
-You can assume that: 
+I file continuano con una linea contenente il numero $Q$ di interrogazioni a cui rispondere. Seguono $Q$ linee contenenti le interrogazioni. Ogni interrogazione è nello stesso formato usato per descrivere gli archi.
+
+L'output del programma deve consistere in esattamente $Q$ linee contenenti `YES` o `NO` a seconda che la risposta alla corrispondente interrogazione sia positiva (l'arco oggetto dell'interrogazione riduce il peso del grafo) o negativa (viceversa).
+
+Potete assumere quanto segue: 
 
 - $1 \leq N \leq 100\,000$
-- $1 <= Q <= 100\,000$
-- nodes are denoted with integers in $[1 \dots 100\,000]$
-- for each edge $(u,v,w): u \neq v$, $$ is an integer in $[1..1\,000\,000\,000]$.
+- $1 \leq Q \leq 100\,000$
+- i nodi sono interi che assumono valori nel range $[1, 100\,000]$
+- per ogni arco $(u,v,w): u \neq v \wedge w \in [1, 1\,000\,000\,000]$.
 
-## Example:
+## Esempio:
 
-### Input file:
+### Input:
 ```
 6
 1 2 2
@@ -277,7 +280,7 @@ You can assume that:
 1 6 3
 ```
 
-### Expected output:
+### Output atteso:
 
 ```
 YES
@@ -288,6 +291,14 @@ YES
 
 ### Unit Testing
 
-You are not required to write any test for this excercise (you are welcome to 
-write them if you are willing to).
+Per questo esercizio non siete tenuti a scrivere unit test. Siete liberi di farlo se lo ritenete opportuno.
+
+### Verifica delle prestazioni
+
+Insieme a questo esercizio venogno forniti 10 dataset di test. Ogni dataset è descritto da un file nel formato descritto e da un file risultato nel formato richiesto come output. Si può considerato un test superato se l'algoritmo implementato completa il processamento del file di input in meno di 2 secondi.
+
+### Note importanti
+
+- Tutti i test possono essere completati nei tempi richiesti su una macchina ragionevomente attrezzata (es., i computer in laboratorio);
+- Superare tutti i test *non* è facile e *non* è richiesto. In fase d'esame verrà valutato lo sforzo fatto per andare oltre la soluzione più banale, ma non ci si aspetta che tutti riescano a superare tutti i test.
 
