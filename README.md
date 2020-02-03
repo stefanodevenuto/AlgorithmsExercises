@@ -2,15 +2,21 @@
 
 # Regole d'esame
 
-Il progetto di laboratorio può essere svolto individualmente o in gruppo di al più 3 persone. **I membri di uno stesso gruppo devono appartenere tutti allo stesso turno di laboratorio**.
+---
 
-ll progetto di laboratorio va consegnato mediante Git (vedi sotto) entro e non oltre la data della prova scritta che si intende sostenere. E' vietato sostenere la prova scritta in caso di mancata consegna del progetto di laboratorio. In caso di superamento della prova scritta, la prova orale (discussione del laboratorio) va sostenuta, previa prenotazione mediante apposita procedura che sarà messa a disposizione sulla pagina i-learn del corso, **nella medesima sessione della prova scritta superata** (si ricorda che le sessioni sono giugno-luglio 2020, settembre 2020, dicembre 2020 e gennaio-febbraio 2021). **DIEGO Verificare: in particolare: ci sarà ancora la sessione di dicembre?/DIEGO**
+**Importante**: gli studenti che hanno nel piano di studi l'insegnamento di Algoritmi con un numero di CFU differente dal quello della corrente edizione (es. 12 CFU) sono pregati di contattare il docente al più presto, al fine di concordare un programma d'esame commisurato ai CFU.
 
-Si noti che, per la sola sessione di giugno-luglio saranno previsti due appelli e, pertanto, esisteranno due possibilità per la discussione del laboratorio (primo o secondo appello della sessione). Nelle altre sessioni, l'appello è unico. Ad esempio, se la studentessa/lo studente X supera la prova scritta a dicembre 2020, deve necessariamente sostenere la discussione di laboratorio con la prova orale di dicembre 2020 (non sarà possibile discutere a gennaio-febbraio 2021). **DIEGO Alla fine, mi pare che l'unica sessione con due appelli sia quella di giugno-luglio.../DIEGO**
+---
+
+Il progetto di laboratorio può essere svolto individualmente o in gruppo (al più 3 persone). **I membri di uno stesso gruppo devono appartenere tutti allo stesso turno di laboratorio**.
+
+ll progetto di laboratorio va consegnato mediante Git (vedi sotto) entro e non oltre la data della prova scritta che si intende sostenere. E' vietato sostenere la prova scritta in caso di mancata consegna del progetto di laboratorio. In caso di superamento della prova scritta, la prova orale (discussione del laboratorio) va sostenuta, previa prenotazione mediante apposita procedura che sarà messa a disposizione sulla pagina i-learn del corso, **nella medesima sessione della prova scritta superata** (si ricorda che le sessioni sono giugno-luglio 2020, settembre 2020, dicembre 2020 e gennaio-febbraio 2021).
+
+Si noti che, per la sola sessione di giugno-luglio saranno previsti due appelli e, pertanto, esisteranno due possibilità per la discussione del laboratorio (primo o secondo appello della sessione). Nelle altre sessioni, l'appello è unico. Ad esempio, se la studentessa/lo studente X supera la prova scritta a dicembre 2020, deve necessariamente sostenere la discussione di laboratorio con la prova orale di dicembre 2020 (non sarà possibile discutere a gennaio-febbraio 2021). 
 
 Esempio:
 
-- la studentessa/lo studente X sostiene la prova scritta nel primo appello di giugno
+- la studentessa/lo studente X sostiene la prova scritta nel primo appello di giugno;
 - la studentessa/lo studente X deve assicurarsi che il progetto su GitLab, alla data della prova scritta che intende sostenere (in questo esempio, quella del primo appello di giugno), sia aggiornato alla versione che vuole presentare al docente di laboratorio;
 - se la studentessa/lo studente X supera la prova scritta nel primo appello di giugno, deve (pena la perdita del voto ottenuto nella prova scritta) iscriversi a uno degli appelli orali di giugno o luglio, prenotarsi su i-learn in uno degli slot messi a disposizione dal docente del turno di appartenenza e sostenere l'orale nello slot temporale prenotato.
 
@@ -42,7 +48,11 @@ Durante la scrittura del codice è richiesto di usare in modo appropriato il sis
 
 Il file Git.md contiene un esempio di come usare Git per lo sviluppo degli esercizi proposti per questo laboratorio.
 
-**N.B. SU GIT DOVRÀ ESSERE CARICATO SOLAMENTE IL CODICE SORGENTE, IN PARTICOLARE NESSUN FILE DATI DOVRÀ ESSERE OGGETTO DI COMMIT!**
+---
+
+**Nota importante**: Su git dovrà essere caricato solamente il codice sorgente, in particolare nessun file dati dovrà essere oggetto di commit!
+
+---
 
 Si rammenta che la valutazione del progetto di laboratorio considererà anche l'uso adeguato di git da parte di ciascun membro del gruppo.
 
@@ -57,7 +67,7 @@ Gli esercizi vanno implementati utilizzando il linguaggio C o Java come precisat
 
 Come indicato sotto, alcuni esercizi chiedono di implementare codice generico. Seguono alcuni suggerimenti sul modo di realizzare codice con questa caratteristica nei due linguaggi accettati.
 
-**Nota importante** : Con "codice generico" si fa riferimento al fatto che  tale codice deve poter essere eseguito con tipi di dato non noti a tempo di compilazione.
+**Nota** : Con "codice generico" si fa riferimento al fatto che  tale codice deve poter essere eseguito con tipi di dato non noti a tempo di compilazione.
 
 **Suggerimenti (C)**: Nel caso del C, è necessario capire come meglio approssimare l'idea di codice generico utilizzando quanto permesso dal linguaggio. Un approccio comune è far sì che le funzioni e le procedure presenti nel codice prendano in input puntatori a void e utilizzino qualche funzione fornita dall'utente per accedere alle componenti necessarie.
 
@@ -71,7 +81,7 @@ Nota: chi è in grado di realizzare tipi di dato astratto tramite tipi opachi è
 
 È, invece, possibile l'uso di strutture datinative del linguaggio o offerte da librerie esterne, se la loro realizzazione non è richiesta da uno degli esercizi proposti.
 
-Es.: nello sviluppo in Java, l'uso di ArrayList è da ritenersi possibile, se nessun eseercizio chiede la realizzazione in Java di un array dinamico.
+Es.: nello sviluppo in Java, l'uso di ArrayList è da ritenersi possibile, se nessun esercizio chiede la realizzazione in Java di un array dinamico.
 
 
 ## Qualità dell'implementazione
@@ -83,11 +93,11 @@ Per "buona qualità" intendiamo codice ben modularizzato, ben commentato e ben t
 **Alcuni suggerimenti:**
 
 - verificare che il codice sia suddiviso correttamente in package o moduli;
-- aggiungere un commento, prima di una definizione, che spiega il funzionamento dell'oggetto definito. Evitare quando possibile di commentare direttamente il codice in sé (se il codice è ben scritto, i commenti in genere non servono);
+- aggiungere un commento, prima di una definizione, che spiega il funzionamento dell'oggetto definito. Evitare quando possibile di commentare direttamente il codice interno alle funzioni/metodi implementati (se il codice è ben scritto, i commenti in genere non servono);
 - la lunghezza di un metodo/funzione è in genere un campanello di allarme: se essa cresce troppo, probabilmente è necessario rifattorizzare il codice spezzando la funzione in più parti. In linea di massima si può consigliare di intervenire quando la funzione cresce sopra le 30 righe (considerando anche commenti e spazi bianchi);
 - sono accettabili commenti in italiano, sebbene siano preferibili in inglese;
-- tutti i nomi (es., nomi di variabili, di metodi, di classi, ecc.) devono essere significativi e in inglese;
-- il codice deve essere correttamente indentato; impostare l'indentazione a 2 caratteri (un'indentazione di 4 caratteri è ammessa ma scoraggiata) e impostare l'editor in modo che inserisca "soft tabs" (cioè, deve inserire il numero corretto di spazi invece che un carattere di tabulazione).
+- tutti i nomi (es., nomi di variabili, di metodi, di classi, ecc.) *devono* essere significativi e in inglese;
+- il codice deve essere correttamente indentato; impostare l'indentazione a 2 caratteri (un'indentazione di 4 caratteri è ammessa ma scoraggiata) e impostare l'editor in modo che inserisca "soft tabs" (cioè, deve inserire il numero corretto di spazi invece che un carattere di tabulazione);
 - per dare i nomi agli identificatori, seguire le convenzioni in uso per il linguaggio scelto:
   - Java: i nomi dei  package sono tutti in minuscolo senza separazione fra le parole (es. thepackage); i nomi dei tipi (classi, interfacce, ecc.) iniziano con una lettera maiuscola e proseguono in camel case (es. TheClass), i nomi dei metodi e delle variabili iniziano con una lettera minuscola e proseguono in camel case (es. theMethod), i nomi delle costanti sono tutti in maiuscolo e in formato snake case (es. THE\_CONSTANT);
   - C:  macro e costanti sono tutti in maiuscolo e in formato snake case (es. THE\_MACRO, THE\_CONSTANT); i nomi di tipo (e.g.  struct, typedefs, enums, ...) iniziano con una lettera maiuscola e proseguono in camel case (e.g., TheType, TheStruct); i nomi di funzione iniziano con una lettera minuscola e proseguono in snake case (e.g., the\_function());
@@ -99,19 +109,19 @@ Per "buona qualità" intendiamo codice ben modularizzato, ben commentato e ben t
 
 pandoc README.md -o README.pdf
 
-**Importante**: Gli esercizi 1 e 3 richiedono (fra le altre cose) di sviluppare codice generico. Nello sviluppare questa parte, si deve assumere di stare sviluppando una libreria generica intesa come fondamento di futuri programmi. Non è pertanto lecito fare assunzioni semplificative legate ai particolari usi che di tale libreria generica gli esercizi potrebbero richiedere di implementare; in generale, l'implementazione della libreria generica non deve essere influenzata in alcun modo dagli usi di essa eventualmente richiesti negli esercizi (ad esempio, se un esercizio dovesse richiedere l'implementazione della struttura dati grafo e quello stesso o un altro esercizio dovesse richiedere l'implementazione, a partire da tale struttura dati, di un algoritmo per il calcolo delle componenti connesse di un grafo, l'implementazione della struttura dati non dovrebbe contenere elementi – variabili, procedure, funzioni, metodi, ecc. – eventualmente utili per il calcolo delle componenti connesse, ma non essenziali alla struttura dati; analogamente, se un esercizio dovesse richiedere di operare su grafi con nodi di tipo stringa, l'implementazione della struttura dati grafo dovrebbe restare generica e non potrebbe quindi assumere per i nodi il solo tipo stringa).
+---
 
-Invece, laddove fosse richiesta anche l'implementazione di un'applicazione che usa una libreria generica per risolvere una classe di problemi particolari (ad esempio, un'applicazione che usa la libreria generica dei grafi per rappresentare il grafo delle relazioni di un social network e calcolare le componenti connesse), si potrà pensare a tale caso d'uso della libreria generica come ad un'istanziazione su una particolare classe di problemi e, quindi, si potrà basare l'implementazione sulle caratteristiche particolari di tale classe (ed. esempio, se sensate, si potranno - nella sola applicazione, non nella libreria, invece, dovrà restare generica - fare le assunzioni che i nodi siano stringhe, che gli archi non abbiano etichette, ecc.).
+**Importante**: Gli esercizi 1 e 3 richiedono (fra le altre cose) di sviluppare codice generico. Nello sviluppare questa parte, si deve assumere di stare sviluppando una libreria generica intesa come fondamento di futuri programmi. Non è pertanto lecito fare assunzioni semplificative; in generale, l'implementazione della libreria generica non deve essere influenzata in alcun modo dagli usi di essa eventualmente richiesti negli esercizi (ad esempio, se un esercizio dovesse richiedere l'implementazione della struttura dati grafo e quello stesso o un altro esercizio dovesse richiedere l'implementazione, a partire da tale struttura dati, di un algoritmo per il calcolo delle componenti connesse di un grafo, l'implementazione della struttura dati *non* dovrebbe contenere elementi – variabili, procedure, funzioni, metodi, ecc. – eventualmente utili per il calcolo delle componenti connesse, ma non essenziali alla struttura dati; analogamente, se un esercizio dovesse richiedere di operare su grafi con nodi di tipo stringa, l'implementazione della struttura dati grafo dovrebbe restare generica e non potrebbe quindi assumere per i nodi il solo tipo stringa).
 
-**Importante**: In sede di discussione d'esame, sarà facoltà del docente chiedere di eseguire gli algoritmi implementati su dati forniti dal docente stesso. Nel caso questi dati siano memorizzati su file, questi saranno dei csv con la medesima struttura dei dataset forniti e descritti nel testo dell'esercizio. I codici sviluppati dovranno consentire un rapido e semplice adattamento agli input forniti: ad esempio, una buona implementazione consentirà di inserire in input il nome del file su cui eseguire il test, mentre una peggiore richiederà di modificare il codice sorgente e una successiva compilazione a fronte della sola modifica del nome del file contenente il dataset.
+---
+
+In sede di discussione d'esame, sarà facoltà del docente chiedere di eseguire gli algoritmi implementati su dati forniti dal docente stesso. Nel caso questi dati siano memorizzati su file, questi saranno dei csv con la medesima struttura dei dataset forniti e descritti nel testo dell'esercizio. I codici sviluppati dovranno consentire un rapido e semplice adattamento agli input forniti: ad esempio, una buona implementazione consentirà di inserire in input il nome del file su cui eseguire il test, mentre una peggiore richiederà di modificare il codice sorgente e una successiva compilazione a fronte della sola modifica del nome del file contenente il dataset.
 
 ## Unit Testing
 
 Come indicato esplicitamente nei testi degli esercizi, il progetto di laboratorio comprende anche la definizione di opportune suite di unit tests.
 
 Si rammenta, però, che il focus del laboratorio è l'implementazione di strutture dati e algoritmi. Relativamente agli unit-test sarà quindi sufficiente che gli studenti dimostrino di averne colto il senso e di saper realizzare una suite di test sufficiente a coprire i casi più comuni (compresi, in particolare, i casi limite).
-
-**IMPORTANTE: gli studenti che hanno nel piano di studi l'insegnamento di Algoritmi con un numero di CFU differente dal quello della corrente edizione (es. 12 CFU) sono pregati di contattare il docente al più presto, al fine di concordare un programma d'esame commisurato si CFU **DIEGO Forse, val la pena precisarlo.../DIEGO**
 
 ## Esercizio 1
 
@@ -132,8 +142,13 @@ Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel 
 
 ### Uso della libreria di ordinamento implementata
 
-Il file `records.csv` che potete trovare seguendo il path
-`/usr/NFS/Linux/labalgoritmi/datasets/` contiene 20 milioni di record da ordinare.
+Il file `records.csv` che potete trovare dalle macchine del laboratorio seguendo il path
+
+```
+/usr/NFS/Linux/labalgoritmi/datasets/
+```
+
+contiene 20 milioni di record da ordinare.
 Ogni record è descritto su una riga e contiene i seguenti campi:
 
 - id: (tipo intero) identificatore univoco del record;
@@ -157,7 +172,7 @@ che vi sareste aspettati? Se sì, perché? Se no, fate delle ipotesi circa il mo
 algoritmi non funzionano come vi aspettate, verificatele e riportate quanto scoperto nella
 relazione.
 
-**IL FILE `records.csv` NON DEVE ESSERE OGGETTO DI COMMIT SU GIT!**
+**Ricordiamo** che il file `records.csv` non deve essere oggetto di commit su git!
 
 ## Esercizio 2
 
@@ -190,7 +205,7 @@ Si ha: $\mathrm{edit\_distance}(s1,s2)=\min\{d_{\mathrm{no-op}},d_{\mathrm{canc}
 
 1. Si implementi una seconda versione edit\_distance\_dyn della funzione, adottando una strategia di programmazione dinamica. Tale versione deve essere anch'essa ricorsiva (in particolare, essa può essere facilmente ottenuta a partire dall'implementazione richiesta al punto precedente).
 
-Nota: Le definizioni sopra riportate non corrispondono al modo usuale di definire la distanza di edit. Sono del tutto sufficienti però per risolvere l'esercizio e sono quelle su cui dovrà essere basato il codice prodotto.
+*Nota*: Le definizioni sopra riportate non corrispondono al modo usuale di definire la distanza di edit. Sono del tutto sufficienti però per risolvere l'esercizio e sono quelle su cui dovrà essere basato il codice prodotto.
 
 ### Unit Testing
 
@@ -198,9 +213,11 @@ Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel 
 
 ### Uso delle funzioni implementate
 
-Il file `dictionary.txt` che potete trovare seguendo il path
+Il file `dictionary.txt` che potete trovare dalle macchine del laboratorio seguendo il path
 
+```
 /usr/NFS/Linux/labalgoritmi/datasets/
+```
 
 contiene l'elenco (di una parte significativa) delle parole italiane. Le parole sono scritte di seguito, ciascuna su una riga.
 
@@ -208,7 +225,7 @@ Il file `correctme.txt` contiene una citazione di John Lennon. La citazione pres
 
 Si implementi un'applicazione che usa la funzione edit\_distance\_dyn per determinare, per ogni parola w in correctme.txt, la lista di parole in dictionary.txt con edit distance minima da w. Si sperimenti il funzionamento dell'applicazione e si riporti in una breve relazione (circa una pagina) i risultati degli esperimenti.
 
-**I FILE dictionary.txt E correctme.txt NON DEVONO ESSERE OGGETTO DI COMMIT SU GIT!**
+**Si ricorda** che i file `dictionary.txt` e `correctme.txt` non devono essere oggetto di commit su git!
 
 ## Esercizio 3
 
@@ -218,7 +235,7 @@ Si implementi un'applicazione che usa la funzione edit\_distance\_dyn per determ
 
 Si implementi una libreria per la struttura dati Hash Map, tenendo conto delle seguenti indicazioni:
 - Una Hash Map rappresenta un insieme di associazioni del
-tipo <k,v>, dove k è una chiave e v è il valore ad essa associato;
+tipo `<K,V>`, dove K è una chiave e V è il valore ad essa associato;
 - in una Hash Map, non possono esservi chiavi ripetute;
 - l'implementazione sfrutta un meccanismo di hashing;
 - L'implementazione deve offrire le seguenti operazioni:
@@ -228,13 +245,11 @@ tipo <k,v>, dove k è una chiave e v è il valore ad essa associato;
   - recupero del numero di associazioni presenti in una Hash Map;
   - cancellazione di tutte le associazioni di una Hash Map;
   - verifica se la chiave specificata è presente in una Hash Map;
-  - verifica se il valore specificato è presente in una Hash Map;
-  - inserimento in una Hash Map di un'associazione di tipo <k,v>;
+  - inserimento in una Hash Map di un'associazione di tipo `<K,V>`;
   - recupero da una Hash Map dell'eventuale valore, associato alla chiave specificata
-  - cancellazione da una Hash Map dell'eventuale associazione contenente la chiave specificata
+  - cancellazione da una Hash Map dell'eventuale associazione con una chiave specificata
   - recupero dell'insieme delle chiavi presenti in una Hash Map
--Il codice che implementa la Hash Map deve essere generico (nel senso che deve consentire di inserire associazioni <k,v> di cui non è noto a tempo di compilazione né il tipo della chiave k, né quello del valore v) e non deve assumere alcuna cardinalità massima per l'insieme di associazioni
-che possono essere ospitate nella Hash Map.
+-Il codice che implementa la Hash Map deve essere generico (nel senso che deve consentire di inserire associazioni `<K,V>` di cui non è noto a tempo di compilazione né il tipo della chiave K, né quello del valore V) e non deve assumere alcuna cardinalità massima per l'insieme di associazioni che possono essere ospitate nella Hash Map.
 
 ### Unit Testing
 
@@ -297,8 +312,17 @@ Per questo esercizio non siete tenuti a scrivere unit test. Siete liberi di farl
 
 Insieme a questo esercizio venogno forniti 10 dataset di test. Ogni dataset è descritto da un file nel formato descritto e da un file risultato nel formato richiesto come output. Si può considerato un test superato se l'algoritmo implementato completa il processamento del file di input in meno di 2 secondi.
 
+I file di test possono essere recuperati dalle macchine del laboratorio accedendo al seguente path:
+
+```
+/usr/NFS/Linux/labalgoritmi/datasets/
+```
+
 ### Note importanti
 
 - Tutti i test possono essere completati nei tempi richiesti su una macchina ragionevomente attrezzata (es., i computer in laboratorio);
 - Superare tutti i test *non* è facile e *non* è richiesto. In fase d'esame verrà valutato lo sforzo fatto per andare oltre la soluzione più banale, ma non ci si aspetta che tutti riescano a superare tutti i test.
+
+**Si ricorda** che i file  devono essere oggetto di commit sul 
+**Si ricorda** che i file di test *non* devono essere oggetto di commit su git!
 
