@@ -143,7 +143,7 @@ Ogni record è descritto su una riga e contiene i seguenti campi:
 - field3: (tipo floating point);
 
 Il formato è un CSV standard: i campi sono separati da virgole; i record sono
-separati da "\n".
+separati da `\n`.
 
 Usando ciascuno degli algoritmi implementati, si ordinino i *record* (non è sufficiente ordinare i
 singoli campi) contenuti nel file `records.csv` in ordine non decrescente secondo i valori contenuti
