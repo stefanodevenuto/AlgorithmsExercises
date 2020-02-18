@@ -263,7 +263,7 @@ Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel 
 
 Si consideri un grafo connesso con $N$ nodi e $N-1$ archi bidirezionali pesati con un peso intero $W$. Ci si pone il problema di trovare un algoritmo efficiente per rispondere a $Q$ distinte interrogazioni.
 
-Una interrogazione consiste in un nuovo arco pesato $q$. L'algoritmo deve rispondere `YES` se $q$ permette di ridurre il peso complessivo del grafo, `NO` altrimenti. L'arco $q$ soddisfa questa condizione se esiste un arco $e$ tale per cui sia possibile sostituire $q$ a $e$ lasciando il grafo connesso e diminuendone il peso complessivo. **BEGIN DIEGO** **CANCELLARE DA QUI** Ogni interrogazione deve essere risolta in modo indipendentemente dalle altre **CANCELLARE FINO A QUI** **AGGIUNGERE:** L'esecuzione della singola interrogazione non deve modificare il grafo **END DIEGO** (i.e., il grafo di partenza è sempre lo stesso).
+Una interrogazione consiste in un nuovo arco pesato $q$. L'algoritmo deve rispondere `YES` se $q$ permette di ridurre il peso complessivo del grafo, `NO` altrimenti. L'arco $q$ soddisfa questa condizione se esiste un arco $e$ tale per cui sia possibile sostituire $q$ a $e$ lasciando il grafo connesso e diminuendone il peso complessivo. L'esecuzione della singola interrogazione non deve modificare il grafo (i.e., il grafo di partenza è sempre lo stesso).
 
 I file di input iniziano con una linea contenente il numero $N$ di nodi del grafo a cui seguono $N-1$ linee contenenti gli archi. Ogni linea che specifica un arco contiene `3` interi separati da spazi: il nodo sorgente, il nodo destinazione e il peso dell'arco.
 
