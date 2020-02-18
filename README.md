@@ -322,6 +322,4 @@ I file di test possono essere recuperati dalle macchine del laboratorio accedend
 
 - Tutti i test possono essere completati nei tempi richiesti su una macchina ragionevomente attrezzata (es., i computer in laboratorio);
 - Superare tutti i test *non* è facile e *non* è richiesto. In fase d'esame verrà valutato lo sforzo fatto per andare oltre la soluzione più banale, ma non ci si aspetta che tutti riescano a superare tutti i test.
-
-**Si ricorda** che i file  devono essere oggetto di commit sul ***DIEGO: VOLEVAMO DIRE QUALCOSA, O POSSIAMO CANCELLARE QUESTA FRASE MONCA?*
-**Si ricorda** che i file di test *non* devono essere oggetto di commit su git!
+- Si ricorda che i file di test *non* devono essere oggetto di commit su git!
