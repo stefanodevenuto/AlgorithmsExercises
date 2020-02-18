@@ -12,7 +12,7 @@ Il progetto di laboratorio può essere svolto individualmente o in gruppo (al pi
 
 ll progetto di laboratorio va consegnato mediante Git (vedi sotto) entro e non oltre la data della prova scritta che si intende sostenere. E' vietato sostenere la prova scritta in caso di mancata consegna del progetto di laboratorio. In caso di superamento della prova scritta, la prova orale (discussione del laboratorio) va sostenuta, previa prenotazione mediante apposita procedura che sarà messa a disposizione sulla pagina i-learn del corso, **nella medesima sessione della prova scritta superata** (si ricorda che le sessioni sono giugno-luglio 2020, settembre 2020, dicembre 2020 e gennaio-febbraio 2021).
 
-Si noti che, per la sola sessione di giugno-luglio saranno previsti due appelli e, pertanto, esisteranno due possibilità per la discussione del laboratorio (primo o secondo appello della sessione). Nelle altre sessioni, l'appello è unico. Ad esempio, se la studentessa/lo studente X supera la prova scritta a dicembre 2020, deve necessariamente sostenere la discussione di laboratorio con la prova orale di dicembre 2020 (non sarà possibile discutere a gennaio-febbraio 2021). 
+Si noti che, per la sola sessione di giugno-luglio saranno previsti due appelli e, pertanto, esisteranno due possibilità per la discussione del laboratorio (primo o secondo appello della sessione). Nelle altre sessioni, l'appello è unico. Ad esempio, se la studentessa/lo studente X supera la prova scritta a dicembre 2020, deve necessariamente sostenere la discussione di laboratorio con la prova orale di dicembre 2020 (non sarà possibile discutere a gennaio-febbraio 2021).
 
 Esempio:
 
@@ -79,7 +79,7 @@ Nota: chi è in grado di realizzare tipi di dato astratto tramite tipi opachi è
 
 È vietato (sia nello sviluppo in Java che in quello in C) l'uso di strutture dati native del linguaggio scelto o offerte da librerie esterne, quando la loro realizzazione è richiesta da uno degli esercizi proposti.
 
-È, invece, possibile l'uso di strutture datinative del linguaggio o offerte da librerie esterne, se la loro realizzazione non è richiesta da uno degli esercizi proposti.
+È, invece, possibile l'uso di strutture dati native del linguaggio o offerte da librerie esterne, se la loro realizzazione non è richiesta da uno degli esercizi proposti.
 
 Es.: nello sviluppo in Java, l'uso di ArrayList è da ritenersi possibile, se nessun esercizio chiede la realizzazione in Java di un array dinamico.
 
@@ -261,9 +261,9 @@ Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel 
 
 ### Testo
 
-Si consideri un grafo connesso con $N$ nodi e $N-1$ archi bidirezionali pesati con un peso intero $W$. Ci si pone il problema di trovare un algoritmo efficiente per rispondere a $Q$ distinte interrogazioni. 
+Si consideri un grafo connesso con $N$ nodi e $N-1$ archi bidirezionali pesati con un peso intero $W$. Ci si pone il problema di trovare un algoritmo efficiente per rispondere a $Q$ distinte interrogazioni.
 
-Una interrogazione consiste in un nuovo arco pesato $q$. L'algoritmo deve rispondere `YES` se $q$ permette di ridurre il peso complessivo del grafo, `NO` altrimenti. L'arco $q$ soddisfa questa condizione se esiste un arco $e$ tale per cui sia possibile sostituire $q$ a $e$ lasciando il grafo connesso e diminuendone il peso complessivo. Ogni interrogazione deve essere risolta in modo indipendentemente dalle altre (i.e., il grafo di partenza è sempre lo stesso).
+Una interrogazione consiste in un nuovo arco pesato $q$. L'algoritmo deve rispondere `YES` se $q$ permette di ridurre il peso complessivo del grafo, `NO` altrimenti. L'arco $q$ soddisfa questa condizione se esiste un arco $e$ tale per cui sia possibile sostituire $q$ a $e$ lasciando il grafo connesso e diminuendone il peso complessivo. **BEGIN DIEGO** **CANCELLARE DA QUI** Ogni interrogazione deve essere risolta in modo indipendentemente dalle altre **CANCELLARE FINO A QUI** **AGGIUNGERE:** L'esecuzione della singola interrogazione non deve modificare il grafo **END DIEGO** (i.e., il grafo di partenza è sempre lo stesso).
 
 I file di input iniziano con una linea contenente il numero $N$ di nodi del grafo a cui seguono $N-1$ linee contenenti gli archi. Ogni linea che specifica un arco contiene `3` interi separati da spazi: il nodo sorgente, il nodo destinazione e il peso dell'arco.
 
@@ -271,7 +271,7 @@ I file continuano con una linea contenente il numero $Q$ di interrogazioni a cui
 
 L'output del programma deve consistere in esattamente $Q$ linee contenenti `YES` o `NO` a seconda che la risposta alla corrispondente interrogazione sia positiva (l'arco oggetto dell'interrogazione riduce il peso del grafo) o negativa (viceversa).
 
-Potete assumere quanto segue: 
+Potete assumere quanto segue:
 
 - $1 \leq N \leq 100\,000$
 - $1 \leq Q \leq 100\,000$
@@ -310,7 +310,7 @@ Per questo esercizio non siete tenuti a scrivere unit test. Siete liberi di farl
 
 ### Verifica delle prestazioni
 
-Insieme a questo esercizio venogno forniti 10 dataset di test. Ogni dataset è descritto da un file nel formato descritto e da un file risultato nel formato richiesto come output. Si può considerato un test superato se l'algoritmo implementato completa il processamento del file di input in meno di 2 secondi.
+Insieme a questo esercizio venogno forniti 10 dataset di test. Ogni dataset è descritto da un file nel formato descritto e da un file risultato nel formato richiesto come output. Si può considerare un test superato se l'algoritmo implementato completa l'elaborazione del file di input in meno di 2 secondi.
 
 I file di test possono essere recuperati dalle macchine del laboratorio accedendo al seguente path:
 
@@ -323,6 +323,5 @@ I file di test possono essere recuperati dalle macchine del laboratorio accedend
 - Tutti i test possono essere completati nei tempi richiesti su una macchina ragionevomente attrezzata (es., i computer in laboratorio);
 - Superare tutti i test *non* è facile e *non* è richiesto. In fase d'esame verrà valutato lo sforzo fatto per andare oltre la soluzione più banale, ma non ci si aspetta che tutti riescano a superare tutti i test.
 
-**Si ricorda** che i file  devono essere oggetto di commit sul 
+**Si ricorda** che i file  devono essere oggetto di commit sul
 **Si ricorda** che i file di test *non* devono essere oggetto di commit su git!
-
