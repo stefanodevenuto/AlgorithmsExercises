@@ -310,7 +310,7 @@ Per questo esercizio non siete tenuti a scrivere unit test. Siete liberi di farl
 
 ### Verifica delle prestazioni
 
-Insieme a questo esercizio venogno forniti 10 dataset di test. Ogni dataset è descritto da un file nel formato descritto e da un file risultato nel formato richiesto come output. Si può considerare un test superato se l'algoritmo implementato completa l'elaborazione del file di input in meno di 2 secondi.
+Insieme a questo esercizio vengono forniti 10 dataset di test. Ogni dataset è descritto da un file nel formato descritto e da un file risultato nel formato richiesto come output. Si può considerare un test superato se l'algoritmo implementato completa l'elaborazione del file di input in meno di 2 secondi.
 
 I file di test possono essere recuperati dalle macchine del laboratorio accedendo al seguente path:
 
