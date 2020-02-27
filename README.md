@@ -142,13 +142,16 @@ Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel 
 
 ### Uso della libreria di ordinamento implementata
 
-Il file `records.csv` che potete trovare dalle macchine del laboratorio seguendo il path
+Il file `records.csv` può essere scaricato dalle macchine del laboratorio seguendo il path
 
-```
-/usr/NFS/Linux/labalgoritmi/datasets/
-```
+  - ```/usr/NFS/Linux/labalgoritmi/datasets/```
 
-contiene 20 milioni di record da ordinare.
+oppure dalla pagina web: 
+
+  - [https://datacloud.di.unito.it/index.php/s/ym5N6f75twFW2kF](https://datacloud.di.unito.it/index.php/s/ym5N6f75twFW2kF).
+
+
+Il file contiene 20 milioni di record da ordinare.
 Ogni record è descritto su una riga e contiene i seguenti campi:
 
 - id: (tipo intero) identificatore univoco del record;
@@ -213,13 +216,15 @@ Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel 
 
 ### Uso delle funzioni implementate
 
-Il file `dictionary.txt` che potete trovare dalle macchine del laboratorio seguendo il path
+I file `dictionary.txt` e `correctme.txt` possono essere scaricati dalle macchine del laboratorio seguendo il path
 
-```
-/usr/NFS/Linux/labalgoritmi/datasets/
-```
+  - ```/usr/NFS/Linux/labalgoritmi/datasets/```
 
-contiene l'elenco (di una parte significativa) delle parole italiane. Le parole sono scritte di seguito, ciascuna su una riga.
+oppure dalla pagina web:
+
+  - [https://datacloud.di.unito.it/index.php/s/tEgL74ExJNHmXQr](https://datacloud.di.unito.it/index.php/s/tEgL74ExJNHmXQr).
+
+Il file `dictionary.txt` contiene l'elenco (di una parte significativa) delle parole italiane. Le parole sono scritte di seguito, ciascuna su una riga.
 
 Il file `correctme.txt` contiene una citazione di John Lennon. La citazione presenta alcuni errori di battitura.
 
@@ -234,8 +239,8 @@ Si implementi un'applicazione che usa la funzione edit\_distance\_dyn per determ
 ### Testo
 
 Si implementi una libreria per la struttura dati Hash Map, tenendo conto delle seguenti indicazioni:
-- Una Hash Map rappresenta un insieme di associazioni del
-tipo `<K,V>`, dove K è una chiave e V è il valore ad essa associato;
+
+- Una Hash Map rappresenta un insieme di associazioni del tipo `<K,V>`, dove K è una chiave e V è il valore ad essa associato;
 - in una Hash Map, non possono esservi chiavi ripetute;
 - l'implementazione sfrutta un meccanismo di hashing;
 - L'implementazione deve offrire le seguenti operazioni:
@@ -249,11 +254,34 @@ tipo `<K,V>`, dove K è una chiave e V è il valore ad essa associato;
   - recupero da una Hash Map dell'eventuale valore, associato alla chiave specificata
   - cancellazione da una Hash Map dell'eventuale associazione con una chiave specificata
   - recupero dell'insieme delle chiavi presenti in una Hash Map
--Il codice che implementa la Hash Map deve essere generico (nel senso che deve consentire di inserire associazioni `<K,V>` di cui non è noto a tempo di compilazione né il tipo della chiave K, né quello del valore V) e non deve assumere alcuna cardinalità massima per l'insieme di associazioni che possono essere ospitate nella Hash Map.
+- Il codice che implementa la Hash Map deve essere generico (nel senso che deve consentire di inserire associazioni `<K,V>` di cui non è noto a tempo di compilazione né il tipo della chiave K, né quello del valore V) e non deve assumere alcuna cardinalità massima per l'insieme di associazioni che possono essere ospitate nella Hash Map.
 
 ### Unit Testing
 
 Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel documento Unit Testing.
+
+### Uso delle funzioni implementate
+
+Il file `hashes.txt` contiene circa un milione di coppie di interi. Il primo elemento di ogni coppia rappresenta una chiave, il secondo elemento rappresenta un valore. Ogni coppia è scritta su una linea. Gli elementi della coppia sono separati da una virgola. Il file può essere scaricato dalle macchine del laboratorio seguendo il path
+
+  - ```/usr/NFS/Linux/labalgoritmi/datasets/```
+
+oppure dalla pagina web:
+
+  - [https://datacloud.di.unito.it/index.php/s/QyyPSzi28B8q4rr](https://datacloud.di.unito.it/index.php/s/QyyPSzi28B8q4rr).
+
+Si esegua quanto segue e si scriva una breve relazione riguardante i risultati ottenuti:
+
+- si carichi il contenuto del file in un oggetto di tipo Hash Map; si misurino i tempi di caricamento;
+- si carichi il contenuto del file in un array allocato staticamente (`hashes.txt` contiene $6\,321\,078$ coppie di interi) ordinato per chiave (la decisione a proposito di quando e come effettuare l'ordinamento è lasciata allo studente e deve essere presa seguendo un criterio di economia dei tempi di esecuzione); si misurino i tempi di caricamento;
+- si estraggano a caso $10\,000\,000$ numeri interi tra $0$ e $10\,000\,000\,000$ e li si memorizzi in un array `keys`;
+- si misuri il tempo necessario per recuperare i valori associati alle chiavi contenute nell'array `keys` usando la Hash Map;
+- si misuri il tempo necessario a recuperare i valori associati alle chiavi contenute nell'array `keys` usando una ricerca binaria sull'array ordinato;
+- si controlli che il numero di chiave reperite con successo sia identico nei due casi presi in considerazione.
+
+**Nota**: Il numero esatto di chiavi che riuscirete a reperire dipende dai valori che avete generato casualmente. Un semplice argomento probabilistico mostra però che dovreste riuscire a reperire circa $(1-\frac{1}{e})*10^7$ valori distinti.
+
+**Nota 2**: Non è necessario che entrambe le prove (il test con array e quello con la Hash Map) siano eseguite durante la stessa esecuzione del programma. Nel caso si proceda eseguendo i due test in due esecuzioni separate, ci si accerti che il seme usato per la generazione dei valori contenuti nell'array `keys` sia lo stesso in entrambi i casi.
 
 ## Esercizio 4
 
@@ -312,11 +340,14 @@ Per questo esercizio non siete tenuti a scrivere unit test. Siete liberi di farl
 
 Insieme a questo esercizio venogno forniti 10 dataset di test. Ogni dataset è descritto da un file nel formato descritto e da un file risultato nel formato richiesto come output. Si può considerare un test superato se l'algoritmo implementato completa l'elaborazione del file di input in meno di 2 secondi.
 
-I file di test possono essere recuperati dalle macchine del laboratorio accedendo al seguente path:
+I file di test (contenuti nell'archivio `graph_substitution_tests.zip`) possono essere scaricati accedendo dalle macchine del laboratorio al seguente path:
 
-```
-/usr/NFS/Linux/labalgoritmi/datasets/
-```
+  - ```/usr/NFS/Linux/labalgoritmi/datasets/```
+
+oppure  dalla pagina web:
+
+  - [https://datacloud.di.unito.it/index.php/s/5AM3H3BsBsPrTMM](https://datacloud.di.unito.it/index.php/s/5AM3H3BsBsPrTMM)
+
 
 ### Note importanti
 
