@@ -1,6 +1,12 @@
+---
+lang: it-IT
+title: "Indice"
+toc: 1
+---
+
 # Laboratorio per il corso di Algoritmi e Strutture Dati: regole d'esame, indicazioni generali e suggerimenti, consegne per gli esercizi
 
-# Regole d'esame
+## Regole d'esame
 
 ---
 
@@ -35,9 +41,9 @@ Ad esempio, si consideri un gruppo di laboratorio costituito dalle studentesse/d
 
 Come unica eccezione si ammetterà, per il solo primo appello della sessione giugno-luglio dell'anno accademico successivo a quello corrente (vale a dire per il primo appello di giugno 2021), che venga discusso il laboratorio presentato in questo documento **a patto che i commit su gitlab dimostrino che il lavoro è stato completato entro la sessione di gennaio-febbraio relativa all'anno accademico corrente**.
 
-# Indicazioni generali e suggerimenti
+## Indicazioni generali e suggerimenti
 
-## Uso di Git
+### Uso di Git
 
 Durante la scrittura del codice è richiesto di usare in modo appropriato il sistema di versioning Git. Questa richiesta implica quanto segue:
 
@@ -56,7 +62,7 @@ Il file Git.md contiene un esempio di come usare Git per lo sviluppo degli eserc
 
 Si rammenta che la valutazione del progetto di laboratorio considererà anche l'uso adeguato di git da parte di ciascun membro del gruppo.
 
-## Linguaggio in cui sviluppare il laboratorio
+### Linguaggio in cui sviluppare il laboratorio
 
 Gli esercizi vanno implementati utilizzando il linguaggio C o Java come precisato di seguito:
 
@@ -75,7 +81,7 @@ Nota: chi è in grado di realizzare tipi di dato astratto tramite tipi opachi è
 
 **Suggerimenti (Java)**: Sebbene in Java la soluzione più in linea con il moderno utilizzo del linguaggio richiederebbe la creazione di classi parametriche, tutte le scelte implementative (compresa la decisione di usare o meno classi parametriche) sono lasciate agli studenti. Inoltre, è possibile (e consigliato) usare gli ArrayList invece degli array nativi al fine di semplificare la realizzazione di codice generico.
 
-## Uso di librerie esterne e/o native del linguaggio scelto
+### Uso di librerie esterne e/o native del linguaggio scelto
 
 È vietato (sia nello sviluppo in Java che in quello in C) l'uso di strutture dati native del linguaggio scelto o offerte da librerie esterne, quando la loro realizzazione è richiesta da uno degli esercizi proposti.
 
@@ -84,7 +90,7 @@ Nota: chi è in grado di realizzare tipi di dato astratto tramite tipi opachi è
 Es.: nello sviluppo in Java, l'uso di ArrayList è da ritenersi possibile, se nessun esercizio chiede la realizzazione in Java di un array dinamico.
 
 
-## Qualità dell'implementazione
+### Qualità dell'implementazione
 
 È parte del mandato degli esercizi la realizzazione di codice di buona qualità.
 
@@ -103,11 +109,13 @@ Per "buona qualità" intendiamo codice ben modularizzato, ben commentato e ben t
   - C:  macro e costanti sono tutti in maiuscolo e in formato snake case (es. THE\_MACRO, THE\_CONSTANT); i nomi di tipo (e.g.  struct, typedefs, enums, ...) iniziano con una lettera maiuscola e proseguono in camel case (e.g., TheType, TheStruct); i nomi di funzione iniziano con una lettera minuscola e proseguono in snake case (e.g., the\_function());
 - i file vanno salvati in formato UTF-8.
 
-# Consegne per gli esercizi
+## Consegne per gli esercizi
 
 **Nota** : la presente sezione contiene alcune formule descritte usando la sintassi \LaTeX. È possibile convertire l'intero documento in formato pdf - di più facile lettura - usando l'utility pandoc. Da riga di comando (Unix):
 
-pandoc README.md -o README.pdf
+```bash
+pandoc --shift-heading-level-by=-1 README.md -o README.pdf
+```
 
 ---
 
@@ -117,17 +125,17 @@ pandoc README.md -o README.pdf
 
 In sede di discussione d'esame, sarà facoltà del docente chiedere di eseguire gli algoritmi implementati su dati forniti dal docente stesso. Nel caso questi dati siano memorizzati su file, questi saranno dei csv con la medesima struttura dei dataset forniti e descritti nel testo dell'esercizio. I codici sviluppati dovranno consentire un rapido e semplice adattamento agli input forniti: ad esempio, una buona implementazione consentirà di inserire in input il nome del file su cui eseguire il test, mentre una peggiore richiederà di modificare il codice sorgente e una successiva compilazione a fronte della sola modifica del nome del file contenente il dataset.
 
-## Unit Testing
+### Unit Testing
 
 Come indicato esplicitamente nei testi degli esercizi, il progetto di laboratorio comprende anche la definizione di opportune suite di unit tests.
 
 Si rammenta, però, che il focus del laboratorio è l'implementazione di strutture dati e algoritmi. Relativamente agli unit-test sarà quindi sufficiente che gli studenti dimostrino di averne colto il senso e di saper realizzare una suite di test sufficiente a coprire i casi più comuni (compresi, in particolare, i casi limite).
 
-## Esercizio 1
+### Esercizio 1
 
-### Linguaggio richiesto: C
+#### Linguaggio richiesto: C
 
-### Testo
+#### Testo
 
 Implementare una libreria che offre i seguenti algoritmi di ordinamento:
 
@@ -136,11 +144,11 @@ Implementare una libreria che offre i seguenti algoritmi di ordinamento:
 
 Il codice che implementa ciascun algoritmo deve essere generico. Inoltre, ogni algoritmo deve permettere di specificare (cioè deve accettare in input) il criterio secondo cui ordinare i dati.
 
-### Unit Testing
+#### Unit Testing
 
 Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel documento Unit Testing.
 
-### Uso della libreria di ordinamento implementata
+#### Uso della libreria di ordinamento implementata
 
 Il file `records.csv` può essere scaricato dalle macchine del laboratorio seguendo il path
 
@@ -177,11 +185,11 @@ relazione.
 
 **Ricordiamo** che il file `records.csv` non deve essere oggetto di commit su git!
 
-## Esercizio 2
+### Esercizio 2
 
-### Linguaggio richiesto: Java
+#### Linguaggio richiesto: Java
 
-### Testo
+#### Testo
 
 Si consideri il problema di determinare la distanza di edit tra due stringhe (Edit distance): date due stringhe s1 e s2, non necessariamente della stessa lunghezza, determinare il minimo numero di operazioni necessarie per trasformare la stringa s2 in s1. Si assuma che le operazioni disponibili siano: cancellazione e inserimento. Esempi:
 
@@ -210,11 +218,11 @@ Si ha: $\mathrm{edit\_distance}(s1,s2)=\min\{d_{\mathrm{no-op}},d_{\mathrm{canc}
 
 *Nota*: Le definizioni sopra riportate non corrispondono al modo usuale di definire la distanza di edit. Sono del tutto sufficienti però per risolvere l'esercizio e sono quelle su cui dovrà essere basato il codice prodotto.
 
-### Unit Testing
+#### Unit Testing
 
 Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel documento Unit Testing.
 
-### Uso delle funzioni implementate
+#### Uso delle funzioni implementate
 
 I file `dictionary.txt` e `correctme.txt` possono essere scaricati dalle macchine del laboratorio seguendo il path
 
@@ -232,11 +240,11 @@ Si implementi un'applicazione che usa la funzione edit\_distance\_dyn per determ
 
 **Si ricorda** che i file `dictionary.txt` e `correctme.txt` non devono essere oggetto di commit su git!
 
-## Esercizio 3
+### Esercizio 3
 
-### Linguaggio richiesto: C
+#### Linguaggio richiesto: C
 
-### Testo
+#### Testo
 
 Si implementi una libreria per la struttura dati Hash Map, tenendo conto delle seguenti indicazioni:
 
@@ -256,13 +264,13 @@ Si implementi una libreria per la struttura dati Hash Map, tenendo conto delle s
   - recupero dell'insieme delle chiavi presenti in una Hash Map
 - Il codice che implementa la Hash Map deve essere generico (nel senso che deve consentire di inserire associazioni `<K,V>` di cui non è noto a tempo di compilazione né il tipo della chiave K, né quello del valore V) e non deve assumere alcuna cardinalità massima per l'insieme di associazioni che possono essere ospitate nella Hash Map.
 
-### Unit Testing
+#### Unit Testing
 
 Implementare gli unit-test degli algoritmi secondo le indicazioni suggerite nel documento Unit Testing.
 
-### Uso delle funzioni implementate
+#### Uso delle funzioni implementate
 
-Il file `hashes.txt` contiene circa un milione di coppie di interi. Il primo elemento di ogni coppia rappresenta una chiave, il secondo elemento rappresenta un valore. Ogni coppia è scritta su una linea. Gli elementi della coppia sono separati da una virgola. Il file può essere scaricato dalle macchine del laboratorio seguendo il path
+Il file `hashes.txt` contiene circa sei milioni di coppie di interi. Il primo elemento di ogni coppia rappresenta una chiave, il secondo elemento rappresenta un valore. Ogni coppia è scritta su una linea. Gli elementi della coppia sono separati da una virgola. Il file può essere scaricato dalle macchine del laboratorio seguendo il path
 
   - ```/usr/NFS/Linux/labalgoritmi/datasets/```
 
@@ -274,20 +282,20 @@ Si esegua quanto segue e si scriva una breve relazione riguardante i risultati o
 
 - si carichi il contenuto del file in un oggetto di tipo Hash Map; si misurino i tempi di caricamento;
 - si carichi il contenuto del file in un array allocato staticamente (`hashes.txt` contiene $6\,321\,078$ coppie di interi) ordinato per chiave (la decisione a proposito di quando e come effettuare l'ordinamento è lasciata allo studente e deve essere presa seguendo un criterio di economia dei tempi di esecuzione); si misurino i tempi di caricamento;
-- si estraggano a caso $10\,000\,000$ numeri interi tra $0$ e $10\,000\,000\,000$ e li si memorizzi in un array `keys`;
+- si estraggano a caso $10\,000\,000$ numeri interi tra $0$ e $10\,000\,000$ e li si memorizzi in un array `keys`;
 - si misuri il tempo necessario per recuperare i valori associati alle chiavi contenute nell'array `keys` usando la Hash Map;
 - si misuri il tempo necessario a recuperare i valori associati alle chiavi contenute nell'array `keys` usando una ricerca binaria sull'array ordinato;
-- si controlli che il numero di chiave reperite con successo sia identico nei due casi presi in considerazione.
+- si controlli che il numero di chiavi reperite con successo sia identico nei due casi presi in considerazione.
 
-**Nota**: Il numero esatto di chiavi che riuscirete a reperire dipende dai valori che avete generato casualmente. Un semplice argomento probabilistico mostra però che dovreste riuscire a reperire circa $(1-\frac{1}{e})*10^7$ valori distinti.
+**Nota**: Il numero esatto di chiavi che riuscirete a reperire dipende dai valori che avete generato casualmente. Dato però che il dataset contiene $6\,321\,078 \simeq (1-1/e) \cdot 10^7$ chiavi distinte estratte nell'intervallo $[0 \dots 10^7)$, un semplice ragionamento probabilistico suggerisce che il numero di chiavi che dovreste riuscire a reperire facendo $N$ tentativi è circa $(1-1/e) \cdot N$ e quindi, nello specifico dell'esercizio proposto, tale numero è di nuovo $(1-1/e) \cdot 10^7$.
 
 **Nota 2**: Non è necessario che entrambe le prove (il test con array e quello con la Hash Map) siano eseguite durante la stessa esecuzione del programma. Nel caso si proceda eseguendo i due test in due esecuzioni separate, ci si accerti che il seme usato per la generazione dei valori contenuti nell'array `keys` sia lo stesso in entrambi i casi.
 
-## Esercizio 4
+### Esercizio 4
 
-### Linguaggio richiesto: C o Java
+#### Linguaggio richiesto: C o Java
 
-### Testo
+#### Testo
 
 Si consideri un grafo connesso con $N$ nodi e $N-1$ archi bidirezionali pesati con un peso intero $W$. Ci si pone il problema di trovare un algoritmo efficiente per rispondere a $Q$ distinte interrogazioni.
 
@@ -306,9 +314,9 @@ Potete assumere quanto segue:
 - i nodi sono interi che assumono valori nel range $[1, 100\,000]$
 - per ogni arco $(u,v,w): u \neq v \wedge w \in [1, 1\,000\,000\,000]$.
 
-## Esempio:
+### Esempio:
 
-### Input:
+#### Input:
 ```
 6
 1 2 2
@@ -323,7 +331,7 @@ Potete assumere quanto segue:
 1 6 3
 ```
 
-### Output atteso:
+#### Output atteso:
 
 ```
 YES
@@ -332,11 +340,11 @@ NO
 YES
 ```
 
-### Unit Testing
+#### Unit Testing
 
 Per questo esercizio non siete tenuti a scrivere unit test. Siete liberi di farlo se lo ritenete opportuno.
 
-### Verifica delle prestazioni
+#### Verifica delle prestazioni
 
 Insieme a questo esercizio vengono forniti 10 dataset di test. Ogni dataset è descritto da un file nel formato descritto e da un file risultato nel formato richiesto come output. Si può considerare un test superato se l'algoritmo implementato completa l'elaborazione del file di input in meno di 2 secondi.
 
@@ -349,7 +357,7 @@ oppure  dalla pagina web:
   - [https://datacloud.di.unito.it/index.php/s/5AM3H3BsBsPrTMM](https://datacloud.di.unito.it/index.php/s/5AM3H3BsBsPrTMM)
 
 
-### Note importanti
+#### Note importanti
 
 - Tutti i test possono essere completati nei tempi richiesti su una macchina ragionevomente attrezzata (es., i computer in laboratorio);
 - Superare tutti i test *non* è facile e *non* è richiesto. In fase d'esame verrà valutato lo sforzo fatto per andare oltre la soluzione più banale, ma non ci si aspetta che tutti riescano a superare tutti i test.
