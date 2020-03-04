@@ -347,7 +347,7 @@ Per questo esercizio non siete tenuti a scrivere unit test. Siete liberi di farl
 
 #### Verifica delle prestazioni
 
-Insieme a questo esercizio vengono forniti 11 dataset di test. Ogni dataset è descritto da un file nel formato descritto e da un file risultato nel formato richiesto come output. Si può considerare un test superato se l'algoritmo implementato completa l'elaborazione del file di input in meno di 2 secondi.
+Insieme a questo esercizio vengono forniti 11 dataset di test. Ogni dataset consiste in un file nel formato descritto sopra e un file risultato nel formato richiesto come output. Si può considerare un test superato se l'algoritmo implementato completa l'elaborazione del file di input in meno di 2 secondi.
 
 I file di test (contenuti nell'archivio `graph_substitution_tests.zip`) possono essere scaricati accedendo dalle macchine del laboratorio al seguente path:
 
