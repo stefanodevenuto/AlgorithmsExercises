@@ -362,3 +362,7 @@ oppure  dalla pagina web:
 - Tutti i test possono essere completati nei tempi richiesti su una macchina ragionevomente attrezzata (es., i computer in laboratorio);
 - Superare tutti i test *non* è facile e *non* è richiesto. In fase d'esame verrà valutato lo sforzo fatto per andare oltre la soluzione più banale, ma non ci si aspetta che tutti riescano a superare tutti i test.
 - Si ricorda che i file di test *non* devono essere oggetto di commit su git!
+- Lo script `run-tests.rb` fornito insieme a questo progetto può essere usato per verificare se la propria
+  soluzione restituisce un output corretto e se termina in meno di due secondi. Se lanciato con l'opzione
+  `-h` mostra a video un breve testo che indica come usarlo e cosa si aspetta dal programma che implementa
+  la soluzione.
