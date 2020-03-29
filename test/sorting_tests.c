@@ -43,7 +43,7 @@ static void free_array(void** array, int n_elem){
 static void sorting_array_insertion_sort_null_array(){
 	void ** array = NULL;
 
-	quick_sort(array, 0, (SortingCmp) compare);
+	insertion_sort(array, 0, (SortingCmp) compare);
 
 	TEST_ASSERT_EQUAL(NULL, array);
 
