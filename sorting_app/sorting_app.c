@@ -1,28 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <errno.h>
+#include <time.h>
 #include "sorting.h"
 
 #define ERROR_EXIT_CODE 1
 
 // Defines the type of records read from file
 typedef struct {
-    int id;
     char* first_field;
     int second_field;
     float third_field;
 } Record;
 
+// Structure that contains the Records
 typedef struct {
 	int size;
 	Record** records;
 } RecordArray;
 
+// Options accepted by this program
 typedef struct {
     SortingCmp comparison_fun;  	// comparison function to be used 
                                     // when sorting the array by field
-    int type;						// type of sorting alghoritm
+    int alghoritm;					// type of sorting alghoritm
     char const* filename;           // name of the file to be read
 } Options;
 
@@ -34,8 +35,24 @@ int compare_second_field(Record* rec1, Record* rec2) {
 	return rec1->second_field - rec2->second_field;
 }
 
-float compare_third_field(Record* rec1, Record* rec2) {
-	return rec1->third_field - rec2->third_field;
+int compare_third_field(Record* rec1, Record* rec2) {
+	float result = rec1->third_field - rec2->third_field;
+
+	if(result > 0) 
+		return 1;
+	else if(result < 0) 
+		return -1;
+	else 
+		return 0;
+}
+
+// Initialize a new RecordArray
+RecordArray* new_record_array(){
+	RecordArray* array = (RecordArray*) malloc(sizeof(RecordArray));
+    array->records = (Record**) malloc(sizeof(Record*));
+    array->size = 0;
+
+    return array;
 }
 
 void print_usage() {
@@ -57,12 +74,22 @@ Options parse_options(int argc, char const *argv[]) {
 
     Options options;
 
+    if( !strcmp(argv[1], "-i") ) {
+        options.alghoritm = 0;
+    } else if( !strcmp(argv[1], "-q" ) ) {
+        options.alghoritm = 1;
+    } else {
+        printf("Parameters error");
+        print_usage();
+        exit(ERROR_EXIT_CODE);
+    }
+
     if( !strcmp(argv[2], "-1") ) {
         options.comparison_fun = (SortingCmp) compare_first_field;
     } else if( !strcmp(argv[2], "-2" ) ) {
         options.comparison_fun = (SortingCmp) compare_second_field;
-    } else if( !strcmp(argv[2], "-2" ) ){
-    	options.comparison_fun = (SortingCmp) compare_second_field;
+    } else if( !strcmp(argv[2], "-3" ) ){
+    	options.comparison_fun = (SortingCmp) compare_third_field;
     } else {
         printf("Parameters error\n");
         print_usage();
@@ -74,11 +101,8 @@ Options parse_options(int argc, char const *argv[]) {
     return options;
 }
 
-RecordArray* load_data(char const* filename ) {
+void load_data( RecordArray* array, char const* filename ) {
     FILE* file = fopen(filename, "r");
-
-    RecordArray* array = (RecordArray*) malloc(sizeof(RecordArray));
-    array->records = (Record**) malloc(sizeof(Record*));
 
     #define MAX_BUF_LEN 1024
 
@@ -87,8 +111,7 @@ RecordArray* load_data(char const* filename ) {
     float third_field;
 
     int lineno = 0;
-    for(int i = 0; i < 30; i++){
-    //while(!feof(file)) {
+    while(!feof(file)) {
         Record* record = (Record*) malloc(sizeof(Record));
 
         int n = fscanf(file, "%*d,%1024[^,],%d,%f\n", first_field, &second_field, &third_field);
@@ -113,15 +136,11 @@ RecordArray* load_data(char const* filename ) {
     }
 
     array->size = lineno;
-
-    return array;
 }
  
 void print_array(RecordArray* array) {
-	printf("STAMPA\n");
     for(int i=0; i < array->size; i++) {
         Record* rec = array->records[i];
-        printf("ID: %d\t", i+1);
         printf("first: %30s\t", rec->first_field);
         printf("second: %10d\t", rec->second_field);
         printf("third: %20f\n",rec->third_field);
@@ -139,24 +158,23 @@ void free_data(RecordArray* array) {
     free(array);
 }
 
+// MAIN
+// Usage: sorting_app < -i | -q > < -1 | -2 > <filename>
 int main(int argc, char const *argv[]){
 
-	RecordArray* array = load_data(argv[1]);
-	//ciao(array);
-	//Record* rec = array[0];
-	//printf("second: %d\n", rec->second_field);
+	Options options = parse_options(argc, argv);
+	RecordArray* array = new_record_array();
+	load_data(array, options.filename);
 
-	printf("FINE LOAD\n");
-	
-	//printf("size: %d\n", size);
-	//print_array(array);
-	printf("Sorting...\n");
-
-    //insertion_sort((void**)array->records, array->size, (SortingCmp) compare_first_field);
-    //insertion_sort((void**)array->records, array->size, (SortingCmp) compare_second_field);
-    quick_sort((void**)array->records, array->size, (SortingCmp) compare_second_field);
-    //insertion_sort((void**)array->records, array->size, (SortingCmp) compare_third_field);
-
-    print_array(array);
+	time_t time;
+	time = clock();
+    if(options.alghoritm)
+    	quick_sort((void**)array->records, array->size, (SortingCmp) options.comparison_fun);
+    else
+    	insertion_sort((void**)array->records, array->size, (SortingCmp) options.comparison_fun);
+    time = clock() - time;
+    //print_array(array);
     free_data(array);
+
+    printf("The method took %f seconds\n", ((double) time) / CLOCKS_PER_SEC);
 }
