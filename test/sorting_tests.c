@@ -4,35 +4,39 @@
 #include "../Unity/unity.h"
 #include "sorting.h"
 
-#define INSERT_INT(array, elem, i) *(int*)array[i] = elem;
+static int* int_new(int n) {
+    int* result = (int*) malloc(sizeof(int));
+    *result = n;
+
+    return result;
+}
 
 static int compare(int* obj1 , int* obj2){
 	return *obj1 - *obj2;
 }
 
-static void print_int_array(void** array, int n_elem){
+static void print_int_array(int** array, int n_elem){
 	for(int i = 0; i < n_elem; i++){
-		printf("%d\t", *(int*)array[i]);
+		printf("%d\t", *array[i]);
 	}
 	printf("\n");
 }
 
-static void** create_test(int n_elem, ...){
+static int** create_test(int n_elem, ...){
 
 	va_list args;
 	va_start(args, n_elem);
 
-	void** result = (void**) malloc(sizeof(*result) * n_elem);
+	int** result = (int**) malloc(sizeof(*result) * n_elem);
 
 	for(int i = 0; i < n_elem; i++){
-		result[i] = (int*) malloc(sizeof(int));
-		INSERT_INT(result, va_arg(args, int), i)
+		result[i] = int_new(va_arg(args, int));
 	}
 
 	return result;
 }
 
-static void free_array(void** array, int n_elem){
+static void free_array(int** array, int n_elem){
 	for(int i = 0; i < n_elem; i++){
 		free(array[i]);
 	}
@@ -41,9 +45,9 @@ static void free_array(void** array, int n_elem){
 }
 
 static void sorting_array_insertion_sort_null_array(){
-	void ** array = NULL;
+	int ** array = NULL;
 
-	insertion_sort(array, 0, (SortingCmp) compare);
+	insertion_sort((void**)array, 0, (SortingCmp) compare);
 
 	TEST_ASSERT_EQUAL(NULL, array);
 
@@ -51,59 +55,59 @@ static void sorting_array_insertion_sort_null_array(){
 }
 
 static void sorting_array_insertion_sort_one_sized_array(){
-	void** array = create_test(1, 1);
+	int** array = create_test(1, 1);
 
-	insertion_sort(array, 1, (SortingCmp) compare);
+	insertion_sort((void**)array, 1, (SortingCmp) compare);
 
-	TEST_ASSERT_EQUAL(1, *(int*) array[0]);
+	TEST_ASSERT_EQUAL(1, *array[0]);
 
 	free_array(array, 1);
 }
 
 static void sorting_array_insertion_sort_ordered_array(){
-	void** array = create_test(4, 1,2,3,4);
+	int** array = create_test(4, 1,2,3,4);
 
-	insertion_sort(array, 4, (SortingCmp) compare);
+	insertion_sort((void**)array, 4, (SortingCmp) compare);
 
-	TEST_ASSERT_EQUAL(1, *(int*) array[0]);
-	TEST_ASSERT_EQUAL(2, *(int*) array[1]);
-	TEST_ASSERT_EQUAL(3, *(int*) array[2]);
-	TEST_ASSERT_EQUAL(4, *(int*) array[3]);
+	TEST_ASSERT_EQUAL(1,  *array[0]);
+	TEST_ASSERT_EQUAL(2,  *array[1]);
+	TEST_ASSERT_EQUAL(3,  *array[2]);
+	TEST_ASSERT_EQUAL(4,  *array[3]);
 
 	free_array(array, 4);
 }
 
 static void sorting_array_insertion_sort_reversed_array(){
-	void** array = create_test(4, 4,3,2,1);
+	int** array = create_test(4, 4,3,2,1);
 
-	insertion_sort(array, 4, (SortingCmp) compare);
+	insertion_sort((void**)array, 4, (SortingCmp) compare);
 
-	TEST_ASSERT_EQUAL(1, *(int*) array[0]);
-	TEST_ASSERT_EQUAL(2, *(int*) array[1]);
-	TEST_ASSERT_EQUAL(3, *(int*) array[2]);
-	TEST_ASSERT_EQUAL(4, *(int*) array[3]);
+	TEST_ASSERT_EQUAL(1,  *array[0]);
+	TEST_ASSERT_EQUAL(2,  *array[1]);
+	TEST_ASSERT_EQUAL(3,  *array[2]);
+	TEST_ASSERT_EQUAL(4,  *array[3]);
 
 	free_array(array, 4);
 }
 
 static void sorting_array_insertion_sort_random_array(){
-	void** array = create_test(4, 3,6,1,7);
+	int** array = create_test(4, 3,6,1,7);
 
-	insertion_sort(array, 4, (SortingCmp) compare);
+	insertion_sort((void**)array, 4, (SortingCmp) compare);
 
-	TEST_ASSERT_EQUAL(1, *(int*) array[0]);
-	TEST_ASSERT_EQUAL(3, *(int*) array[1]);
-	TEST_ASSERT_EQUAL(6, *(int*) array[2]);
-	TEST_ASSERT_EQUAL(7, *(int*) array[3]);
+	TEST_ASSERT_EQUAL(1,  *array[0]);
+	TEST_ASSERT_EQUAL(3,  *array[1]);
+	TEST_ASSERT_EQUAL(6,  *array[2]);
+	TEST_ASSERT_EQUAL(7,  *array[3]);
 
 	free_array(array, 4);
 
 }
 
 static void sorting_array_quick_sort_null_array(){
-	void ** array = NULL;
+	int** array = NULL;
 
-	quick_sort(array, 0, (SortingCmp) compare);
+	quick_sort((void**)array, 0, (SortingCmp) compare);
 
 	TEST_ASSERT_EQUAL(NULL, array);
 
@@ -111,50 +115,50 @@ static void sorting_array_quick_sort_null_array(){
 }
 
 static void sorting_array_quick_sort_one_sized_array(){
-	void** array = create_test(1, 1);
+	int** array = create_test(1, 1);
 
-	quick_sort(array, 1, (SortingCmp) compare);
+	quick_sort((void**)array, 1, (SortingCmp) compare);
 
-	TEST_ASSERT_EQUAL(1, *(int*) array[0]);
+	TEST_ASSERT_EQUAL(1,  *array[0]);
 
 	free_array(array, 1);
 }
 
 static void sorting_array_quick_sort_ordered_array(){
-	void** array = create_test(4, 1,2,3,4);
+	int** array = create_test(4, 1,2,3,4);
 
-	quick_sort(array, 4, (SortingCmp) compare);
+	quick_sort((void**)array, 4, (SortingCmp) compare);
 
-	TEST_ASSERT_EQUAL(1, *(int*) array[0]);
-	TEST_ASSERT_EQUAL(2, *(int*) array[1]);
-	TEST_ASSERT_EQUAL(3, *(int*) array[2]);
-	TEST_ASSERT_EQUAL(4, *(int*) array[3]);
+	TEST_ASSERT_EQUAL(1,  *array[0]);
+	TEST_ASSERT_EQUAL(2,  *array[1]);
+	TEST_ASSERT_EQUAL(3,  *array[2]);
+	TEST_ASSERT_EQUAL(4,  *array[3]);
 
 	free_array(array, 4);
 }
 
 static void sorting_array_quick_sort_reversed_array(){
-	void** array = create_test(4, 4,3,2,1);
+	int** array = create_test(4, 4,3,2,1);
 
-	quick_sort(array, 4, (SortingCmp) compare);
+	quick_sort((void**)array, 4, (SortingCmp) compare);
 
-	TEST_ASSERT_EQUAL(1, *(int*) array[0]);
-	TEST_ASSERT_EQUAL(2, *(int*) array[1]);
-	TEST_ASSERT_EQUAL(3, *(int*) array[2]);
-	TEST_ASSERT_EQUAL(4, *(int*) array[3]);
+	TEST_ASSERT_EQUAL(1,  *array[0]);
+	TEST_ASSERT_EQUAL(2,  *array[1]);
+	TEST_ASSERT_EQUAL(3,  *array[2]);
+	TEST_ASSERT_EQUAL(4,  *array[3]);
 
 	free_array(array, 4);
 }
 
 static void sorting_array_quick_sort_random_array(){
-	void** array = create_test(4, 3,6,1,7);
+	int** array = create_test(4, 3,6,1,7);
 
-	quick_sort(array, 4, (SortingCmp) compare);
+	quick_sort((void**)array, 4, (SortingCmp) compare);
 
-	TEST_ASSERT_EQUAL(1, *(int*) array[0]);
-	TEST_ASSERT_EQUAL(3, *(int*) array[1]);
-	TEST_ASSERT_EQUAL(6, *(int*) array[2]);
-	TEST_ASSERT_EQUAL(7, *(int*) array[3]);
+	TEST_ASSERT_EQUAL(1,  *array[0]);
+	TEST_ASSERT_EQUAL(3,  *array[1]);
+	TEST_ASSERT_EQUAL(6,  *array[2]);
+	TEST_ASSERT_EQUAL(7,  *array[3]);
 
 	free_array(array, 4);
 
