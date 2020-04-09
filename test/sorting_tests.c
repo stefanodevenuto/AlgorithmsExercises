@@ -45,7 +45,7 @@ static void free_array(int** array, int n_elem){
 }
 
 static void sorting_array_insertion_sort_null_array(){
-	int ** array = NULL;
+	int** array = NULL;
 
 	insertion_sort((void**)array, 0, (SortingCmp) compare);
 

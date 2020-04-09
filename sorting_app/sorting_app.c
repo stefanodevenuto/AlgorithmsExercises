@@ -59,7 +59,6 @@ void print_usage() {
     printf("sorting_app < -i | -q > < -1 | -2 | -3 > <filename>\n");
     printf("    -i: sorting values using insertion sort\n");
     printf("    -q: sorting values using quick-sort\n");
-    printf("\n");
     printf("    -1: sort according to the first field ascending order\n");
     printf("    -2: sort according to the second field ascending order\n");
     printf("    -3: sort according to the third field ascending order\n");
