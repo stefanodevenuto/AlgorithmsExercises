@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "../include/hashmap.h"
 
-#define INITIAL_CAPACITY 3329
+#define INITIAL_CAPACITY 6321078
 
 #define FREE_NODE(hnode) HashNode* tmp; \
 					 	 tmp = hnode; \
