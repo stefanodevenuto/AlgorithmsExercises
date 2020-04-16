@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include "../include/hashmap.h"
 
-#define INITIAL_CAPACITY 3 //3329
+#define INITIAL_CAPACITY 3329
 
-#define FREE_NODE(node) HashNode* tmp; \
-					 	tmp = node; \
-					 	node = node->next; \
-					 	free(tmp); \
+#define FREE_NODE(hnode) HashNode* tmp; \
+					 	 tmp = hnode; \
+					 	 hnode = hnode->next; \
+					 	 free(tmp); 
 
 typedef struct _HashNode{
 	void* key;
@@ -47,26 +47,8 @@ HashMap* HashMap_new(HashFunction hashfun, HashMapCmp compare){
 
 void list_free(HashNode* head){
 	while(head != NULL){
-		FREE_NODE(head);
+		FREE_NODE(head)
 	}
-}
-
-void HashMap_free(HashMap* hm){
-	for(int i = 0; i < hm->capacity; i++){
-		if(hm->array[i] != NULL){
-			list_free(hm->array[i]);
-		}
-	}
-	free(hm->array);
-	free(hm);
-}
-
-int HashMap_empty(HashMap* hm){
-	return hm->size == 0;
-}
-
-int HashMap_size(HashMap* hm){
-	return hm->size;
 }
 
 void list_insert(HashNode** head, HashNode** new_hnode){
@@ -80,16 +62,34 @@ void list_insert(HashNode** head, HashNode** new_hnode){
 void list_remove(HashNode** head, HashNode** hnode){
 	if((*hnode)->prev != NULL)
 		(*hnode)->prev->next = (*hnode)->next;
-	else
+	else 
 		*head = (*hnode)->next;
 	if((*hnode)->next != NULL)
 		(*hnode)->next->prev = (*hnode)->prev;
+	free(*hnode);
 }
 
 HashNode* list_search(HashNode* head, void* key, HashMapCmp compare){
 	while(head != NULL && compare(head->key, key) != 0)
 		head = head->next;
 	return head;
+}
+
+void HashMap_free(HashMap* hm){
+	for(int i = 0; i < hm->capacity; i++)
+		if(hm->array[i] != NULL)
+			list_free(hm->array[i]);
+		
+	free(hm->array);
+	free(hm);
+}
+
+int HashMap_empty(HashMap* hm){
+	return hm->size == 0;
+}
+
+int HashMap_size(HashMap* hm){
+	return hm->size;
 }
 
 int HashMap_ispresent(HashMap* hm, void* key){
@@ -120,7 +120,6 @@ void HashMap_remove(HashMap* hm, void* key){
 }
 
 void* HashMap_get(HashMap* hm, void* key){
-
 	int position = hm->hashfun(key) % hm->capacity;
 	HashNode* result = list_search(hm->array[position], key, hm->compare);
 	if(result != NULL)
@@ -131,7 +130,6 @@ void* HashMap_get(HashMap* hm, void* key){
 
 void HashMap_remove_all(HashMap* hm){
 	for(int i = 0; i < hm->capacity; i++){
-		printf("%d\n", i);
 		if(hm->array[i] != NULL){
 			list_free(hm->array[i]);
 			hm->array[i] = NULL;
@@ -141,5 +139,18 @@ void HashMap_remove_all(HashMap* hm){
 }
 
 void** HashMap_get_all_keys(HashMap* hm){
-	
+	void** keys = (void**) malloc(sizeof(void*) * hm->size);
+	int k_i = 0;
+	for(int i = 0; i < hm->capacity; i++){
+		if(hm->array[i] != NULL){
+			HashNode* head = hm->array[i];
+			while(head != NULL){
+				keys[k_i] = head->key;
+				k_i++;
+				head = head->next;
+			}
+		}
+	}
+
+	return keys;
 }
