@@ -17,8 +17,6 @@
 			   			  array[i] = array[j]; \
 			   			  array[j] = temp;
 
-#define ARRAY_SIZE(array) sizeof(array) / sizeof(array[0])
-
 typedef struct {
     int key;
     int value;
@@ -67,7 +65,7 @@ void quick_sort(Record array[], int start, int end){
 
 int binary_search(Record array[], int start, int end, int x){
 	while (start <= end) { 
-        int mid = start + (end - start) / 2; 
+        int mid = (start + end) / 2; 
         if (array[mid].key == x) 
         	return mid; 
         if (array[mid].key < x) 
@@ -102,6 +100,7 @@ void load_data_hashmap(HashMap* hashmap , const char* filename){
 
         HashMap_insert(hashmap, key, value);
     }
+
 }
 
 void load_data_array(Record array[], const char* filename){
@@ -124,58 +123,55 @@ void load_data_array(Record array[], const char* filename){
 
         array[lineno - 1] = record;
     }
+
 }
 
 void load_keys(int* keys){
 	for(int i = 0; i < RAND_SIZE; i++){
-		keys[i] = rand() % RAND_SIZE+1;
+		keys[i] = rand() % (RAND_SIZE+1);
 	}
 }
 
 int* get_keys_hashmap(HashMap* hashmap, int* keys){
 	int* hashmap_get_keys = (int*) malloc(sizeof(int) * RAND_SIZE);
-	int* value;
+	void* value;
 	int j = 0;
 	for(int i = 0; i < RAND_SIZE; i++){
-		value = (int*) HashMap_get(hashmap, &keys[i]);
-		if(value != NULL){
-			hashmap_get_keys[j] = *value;
+		value = HashMap_get(hashmap, &keys[i]);
+		if(value != 0){
+			hashmap_get_keys[j] = *(int*)value;
 			j++;
 		}
 	}
-
+	printf("ELEMENTS HASHMAP : %d\n", j);
 	return hashmap_get_keys;
 }
 
 int* get_keys_array(Record array[], int* keys){
 	int* array_get_keys = (int*) malloc(sizeof(int) * RAND_SIZE);
+	memset(array_get_keys, -33, RAND_SIZE);
 	int index;
 	int j = 0;
-	for(int i = 0;i < RAND_SIZE; i++){
+	for(int i = 0; i < RAND_SIZE; i++){
 		index = binary_search(array, 0, SIZE_KEYS - 1, keys[i]);
 		if(index != -1){
 			array_get_keys[j] = array[index].value;
 			j++;
 		}
 	}
-
+	printf("ELEMENTS ARRAY : %d\n", j);
 	return array_get_keys;
 }
 
 void check_values(int* hashmap_get_keys, int* array_get_keys){
-	int size_hashmap = ARRAY_SIZE(hashmap_get_keys);
-	int size_array = ARRAY_SIZE(array_get_keys);
-
-	if(size_hashmap == size_array){
-		for(int i = 0; i < size_hashmap; i++){
-			if(hashmap_get_keys[i] != array_get_keys[i]){
-				printf("Arrays don't match\n");
-				exit(ERROR_EXIT_CODE);
-			}
+	
+	for(int i = 0; i < 6320501; i++){
+		//printf("%d,%d\n", hashmap_get_keys[i], array_get_keys[i]);
+		if(hashmap_get_keys[i] != array_get_keys[i]){
+			printf("Arrays don't match\n");
+			//printf("%d,%d : %d,%d\n", hashmap_get_keys[i-1], array_get_keys[i-1], hashmap_get_keys[i], array_get_keys[i]);
+			exit(0);
 		}
-	}else{
-		printf("Arrays don't match\n");
-		exit(ERROR_EXIT_CODE);
 	}
 }
 
@@ -196,7 +192,7 @@ int main(int argc, char const *argv[]){
 	printf("Load time static Array: %f seconds\n", TIME_CHECK());
 
 	TIME_START()
-	quick_sort(array, 0, SIZE_KEYS);
+	quick_sort(array, 0, SIZE_KEYS - 1);
 	TIME_END()
 	printf("Sorting static Array time: %f seconds\n", TIME_CHECK());
 
