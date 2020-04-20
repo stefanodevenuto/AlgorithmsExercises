@@ -56,7 +56,7 @@ int HashMap_empty(HashMap* hm);
 
 /*
  * Returns the number of association
- * currentrly present in the hasmap.
+ * currently present in the hasmap.
  */
 int HashMap_size(HashMap* hm);
 

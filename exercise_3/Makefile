@@ -3,6 +3,10 @@ CFLAGS=-g -O0 -I include -I Resources/C/Unity/
 
 all: bin/test bin/hashmap_app
 
+clean:
+	$(RM) -rf bin/*
+	$(RM) -rf build/*
+
 build/hashmap.o: src/hashmap.c include/hashmap.h
 	$(CC) $(CFLAGS) -c src/hashmap.c -o build/hashmap.o
 
