@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include "../include/hashmap.h"
 
-#define INITIAL_CAPACITY 6321078
+//#define INITIAL_CAPACITY 6321078
+#define LOAD_FACTOR 0.75
 
 #define FREE_NODE(hnode) HashNode* tmp; \
 					 	 tmp = hnode; \
@@ -20,6 +21,7 @@ struct _HashMap{
 	HashNode** array;
 	int capacity;
 	int size;
+	int max_threshold;
 	HashFunction hashfun;
 	HashMapCmp compare;
 };
@@ -34,11 +36,12 @@ HashNode* HashNode_new(void* key, void* value){
 	return hnode;
 }
 
-HashMap* HashMap_new(HashFunction hashfun, HashMapCmp compare){
+HashMap* HashMap_new(HashFunction hashfun, HashMapCmp compare, int capacity){
 	HashMap* result = (HashMap*) malloc(sizeof(HashMap));
-	result->capacity = INITIAL_CAPACITY;
+	result->capacity = capacity;
 	result->array = (HashNode**) calloc(result->capacity, sizeof(HashNode*));
 	result->size = 0;
+	result->max_threshold = result->capacity * LOAD_FACTOR;
 	result->hashfun = hashfun;
 	result->compare = compare;
 
@@ -92,6 +95,10 @@ int HashMap_size(HashMap* hm){
 	return hm->size;
 }
 
+int get_position(HashMap* hm, void* key){
+	return hm->hashfun(key) % hm->capacity;
+}
+
 int HashMap_ispresent(HashMap* hm, void* key){
 	int position = hm->hashfun(key) % hm->capacity;
 
@@ -100,18 +107,67 @@ int HashMap_ispresent(HashMap* hm, void* key){
 	return 1;
 }
 
-void HashMap_insert(HashMap* hm, void* key, void* value){
+static void print_hashmap(HashMap* hm){
+	printf("________________________________________________________________________________________\n\n");
+	for(int i = 0; i < hm->capacity; i++){
+		HashNode* head = hm->array[i];
+		printf("-----------------\n");
+		while(head != NULL){
+			printf("%d : ", *(int*)head->key);
+			head = head->next;
+		}
 
-	if(!HashMap_ispresent(hm, key)){
-		int position = hm->hashfun(key) % hm->capacity;
-		HashNode* new_hnode = HashNode_new(key, value);
-		list_insert(&hm->array[position], &new_hnode);
-		hm->size++;
+		printf("\n");
 	}
 }
 
+static void rehash(HashMap** hm){
+
+	HashMap* old_hm = *hm;
+	int position;
+	*hm = HashMap_new((*hm)->hashfun, (*hm)->compare, (*hm)->capacity * 2);
+	//(*hm)->size = old_hm->size;
+	printf("old_hm-capacity: %d\n", old_hm->capacity);
+	int i;
+	for(i = 0; i < old_hm->capacity; i++){
+		HashNode* head = old_hm->array[i];
+
+		while(head != NULL){
+			/*position = get_position(*hm, head->key);
+			list_insert(&((*hm)->array[position]), &head);
+			(*hm)->size++;
+			head = head->next;*/
+			HashMap_insert(hm, head->key, head->value);
+			head = head->next;
+		}
+	}
+
+	printf("REHASHED : %d\n", HashMap_size(*hm));
+	//return *hm;
+	HashMap_free(old_hm);
+	//free(old_hm);
+	//printf("REHASHED : %d\n", HashMap_size(*hm));
+}
+
+void HashMap_insert(HashMap** hm, void* key, void* value){
+
+	if(!HashMap_ispresent(*hm, key)){
+		int position = get_position(*hm, key);
+		HashNode* new_hnode = HashNode_new(key, value);
+		list_insert(&((*hm)->array[position]), &new_hnode);
+		(*hm)->size++;
+		if((*hm)->size == (int) (*hm)->max_threshold){
+			rehash(hm);
+			printf("REHASHED : %d\n", HashMap_size(*hm));
+			//hm = new_hm;
+		}
+	}
+	//printf("HashMap capacity: %d\n", (*hm)->capacity);
+	//print_hashmap(*hm);
+}
+
 void HashMap_remove(HashMap* hm, void* key){
-	int position = hm->hashfun(key) % hm->capacity;
+	int position = get_position(hm, key);
 	HashNode* result = list_search(hm->array[position], key, hm->compare);
 	if(result != NULL){
 		list_remove(&hm->array[position], &result);
@@ -120,7 +176,8 @@ void HashMap_remove(HashMap* hm, void* key){
 }
 
 void* HashMap_get(HashMap* hm, void* key){
-	int position = hm->hashfun(key) % hm->capacity;
+	//printf("2\n");
+	int position = get_position(hm, key);
 	HashNode* result = list_search(hm->array[position], key, hm->compare);
 	if(result != NULL)
 		return result->value;
