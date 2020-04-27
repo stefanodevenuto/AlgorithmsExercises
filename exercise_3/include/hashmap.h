@@ -34,7 +34,7 @@ int HashMap_ispresent(HashMap* hm, void* key);
  * in the hashmap. Requires the addres of
  * the Hash Map.
  */
-void HashMap_insert(HashMap** hm, void* key, void* value);
+void HashMap_insert(HashMap* hm, void* key, void* value);
 
 /*
  * Remove an association given a key.

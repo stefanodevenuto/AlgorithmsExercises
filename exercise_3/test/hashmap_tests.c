@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include "../Unity/unity.h"
+#include "unity.h"
 #include "hashmap.h"
 
 static int* int_new(int n) {
@@ -24,10 +24,9 @@ static HashMap* create_test_object(int n_elem, ...){
 	va_list args;
 	va_start(args, n_elem);
 
-	HashMap* result = HashMap_new((HashFunction) hash_fun, (HashMapCmp) compare, 4);
-
+	HashMap* result = HashMap_new((HashFunction) hash_fun, (HashMapCmp) compare, 3);
 	for(int i = 0; i < n_elem; i++){
-		HashMap_insert(&result, int_new(i), int_new(va_arg(args, int)));
+		HashMap_insert(result, int_new(i), int_new(va_arg(args, int)));
 	}
 
 	return result;
@@ -40,7 +39,6 @@ static void delete_test_objects(HashMap* hm){
 		free(value);
 		free(keys[i]);
 	}
-
 	free(keys);
 	HashMap_free(hm);
 }
@@ -54,7 +52,6 @@ static void hash_map_get_key_not_present(){
 }
 
 static void hash_map_get_generic(){
-	printf("AAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
 	HashMap* hm = create_test_object(11, 34,78,12,90,45,65,876,23,565,87,89);
 
 	TEST_ASSERT_EQUAL(12, *(int*) HashMap_get(hm, int_new(2)));
@@ -66,7 +63,6 @@ static void hash_map_get_generic(){
 }
 
 static void hash_map_remove_key_not_present(){
-	printf("BBBBBBBBBBBBBBBBBBBBBBBBBBBB\n");
 	HashMap* hm = create_test_object(4, 34,78,12,90);
 
 	HashMap_remove(hm, int_new(10));
@@ -102,6 +98,8 @@ static void hash_map_remove_all(){
 	TEST_ASSERT_EQUAL(0, HashMap_get(hm,int_new(2)));
 	TEST_ASSERT_EQUAL(0, HashMap_get(hm,int_new(3)));
 
+	TEST_ASSERT_EQUAL(0, HashMap_size(hm));
+
 	delete_test_objects(hm);
 
 }
@@ -112,17 +110,16 @@ static void hash_map_insert_already_present(){
 	int* new_key = int_new(2);
 	int* new_value = int_new(45);
 	
-	HashMap_insert(&hm, new_key, new_value);
+	HashMap_insert(hm, new_key, new_value);
 
 	TEST_ASSERT_EQUAL(34, *(int*) HashMap_get(hm,int_new(0)));
 	TEST_ASSERT_EQUAL(78, *(int*) HashMap_get(hm,int_new(1)));
-	TEST_ASSERT_EQUAL(12, *(int*) HashMap_get(hm,int_new(2)));
+	TEST_ASSERT_EQUAL(45, *(int*) HashMap_get(hm,int_new(2)));
 	TEST_ASSERT_EQUAL(90, *(int*) HashMap_get(hm,int_new(3)));
 	TEST_ASSERT_EQUAL(4, HashMap_size(hm));
 	
 	free(new_key);
-	free(new_value);
-
+	//free(new_value);
 	delete_test_objects(hm);
 
 }
@@ -151,14 +148,15 @@ static void hash_map_get_all_keys(){
 
 
 
+
 int main(){
 	UNITY_BEGIN();
 		RUN_TEST(hash_map_get_key_not_present);
 		RUN_TEST(hash_map_get_generic);
-		//RUN_TEST(hash_map_remove_key_not_present);
-		//RUN_TEST(hash_map_remove_generic);
-		//RUN_TEST(hash_map_remove_all);
-		//RUN_TEST(hash_map_insert_already_present);
-		//RUN_TEST(hash_map_get_all_keys);
+		RUN_TEST(hash_map_remove_key_not_present);
+		RUN_TEST(hash_map_remove_generic);
+		RUN_TEST(hash_map_remove_all);
+		RUN_TEST(hash_map_insert_already_present);
+		RUN_TEST(hash_map_get_all_keys);
     UNITY_END();
 }
