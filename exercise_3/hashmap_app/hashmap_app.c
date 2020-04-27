@@ -29,10 +29,6 @@ static int* int_new(int n) {
     return result;
 }
 
-void print_usage() {
-    printf("hashmap_app <filename>\n");
-}
-
 int hash_fun(int* key){
 	return *key;
 }
@@ -84,21 +80,33 @@ int binary_search(Record array[], int start, int end, int x){
     return -1;
 }
 
+void print_usage() {
+    printf("Usage: hashmap_app <filename>\n");
+}
+
+char const* parse_options(int argc, char const *argv[]) {
+    if(argc != 2) {
+        printf("Parameters error\n");
+        print_usage();
+        exit(ERROR_EXIT_CODE);
+    }
+
+    char const* filename = argv[1];
+    return filename;
+}
+
 void load_data_hashmap(HashMap* hashmap , const char* filename){
 	FILE* file = fopen(filename, "r");
+
     int lineno = 0;
     int key;
     int value;
 
-    //HashMap* hashmap = HashMap_new((HashFunction) hash_fun, (HashMapCmp) compare_keys, 6321078);  // 79013480
-
     while(!feof(file)) {
-
         int n = fscanf(file, "%d,%d\n", &key, &value);
         lineno++;
         if(n != 2) {
             if(feof(file)) {
-            	printf("miao\n");
                 continue;
             }
 
@@ -108,10 +116,6 @@ void load_data_hashmap(HashMap* hashmap , const char* filename){
 
         HashMap_insert(hashmap, int_new(key), int_new(value));
     }
-
-    //printf("%s\n", );
-    printf("HASHMAP LOADED ELEMENTS : %d\n", HashMap_size(hashmap));
-
 }
 
 void load_data_array(Record array[], const char* filename){
@@ -143,70 +147,86 @@ void load_keys(int* keys){
 	}
 }
 
-int* get_keys_hashmap(HashMap* hashmap, int* keys){
-	int* hashmap_get_keys = (int*) malloc(sizeof(int) * RAND_SIZE);
+int get_values_hashmap(HashMap* hashmap, int* hashmap_values, int* keys){
 	void* value;
-	int j = 0;
+	int n_value = 0;
 	for(int i = 0; i < RAND_SIZE; i++){
-		//printf("1\n");
 		value = HashMap_get(hashmap, &keys[i]);
-		if(value != 0){
-			hashmap_get_keys[j] = *(int*)value;
-			j++;
+		if(value != NULL){
+			hashmap_values[n_value] = *(int*)value;
+			n_value++;
 		}
 	}
 
-	printf("ELEMENTS HASHMAP : %d\n", j);
-	return hashmap_get_keys;
+	return n_value;
 }
 
-int* get_keys_array(Record array[], int* keys){
-	int* array_get_keys = (int*) malloc(sizeof(int) * RAND_SIZE);
-	memset(array_get_keys, -33, RAND_SIZE);
+int get_values_array(Record array[], int* array_values, int* keys){
 	int index;
-	int j = 0;
+	int n_value = 0;
 	for(int i = 0; i < RAND_SIZE; i++){
-		index = binary_search(array, 0, SIZE_KEYS - 1, keys[i]);
+		index = binary_search(array, 0, SIZE_KEYS-1, keys[i]);
 		if(index != -1){
-			array_get_keys[j] = array[index].value;
-			j++;
+			array_values[n_value] = array[index].value;
+			n_value++;
 		}
 	}
-	printf("ELEMENTS ARRAY : %d\n", j);
-	return array_get_keys;
+	return n_value;
 }
 
-void check_values(int* hashmap_get_keys, int* array_get_keys){
+int check_values(int* hashmap_values, int* array_values, int hashmap_value_size, int array_value_size){
+
+	if(hashmap_value_size != array_value_size){
+		printf("Arrays don't match , different sizes");
+		return 0;
+	}
 	
-	for(int i = 0; i < 6320501; i++){
-		//printf("%d,%d\n", hashmap_get_keys[i], array_get_keys[i]);
-
-		//printf("%d,%d\n", hashmap_get_keys[i], array_get_keys[i]);
-
-		if(hashmap_get_keys[i] != array_get_keys[i]){
+	for(int i = 0; i < hashmap_value_size; i++){
+		if(hashmap_values[i] != array_values[i]){
 			printf("Arrays don't match at %d position\n", i+1);
-			//printf("%d,%d : %d,%d\n", hashmap_get_keys[i-1], array_get_keys[i-1], hashmap_get_keys[i], array_get_keys[i]);
-			exit(0);
+			return 0;
 		}
+		//printf("%d,%d\n", hashmap_values[i], array_values[i]);
 	}
+
+	return 1;
 }
 
 
+void free_data(HashMap* hashmap, int* keys, int* hashmap_values, int* array_values){
+	free(keys);
+	free(hashmap_values);
+	free(array_values);
+
+	int** hashmap_keys = (int**) malloc(sizeof(*hashmap_keys) * HashMap_size(hashmap));
+	HashMap_get_all_keys(hashmap, (void**) hashmap_keys);
+
+	for(int i = 0; i < HashMap_size(hashmap); i++){
+		int* value = HashMap_get(hashmap, hashmap_keys[i]);
+		free(value);
+		free(hashmap_keys[i]);
+	}
+
+	free(hashmap_keys);
+	HashMap_free(hashmap);
+}
 
 int main(int argc, char const *argv[]){
+
+	char const* filename = parse_options(argc, argv);
 	time_t time;
-	HashMap* hashmap = HashMap_new((HashFunction) hash_fun, (HashMapCmp) compare_keys, 6321078);  // 79013480
+
+	HashMap* hashmap = HashMap_new((HashFunction) hash_fun, (HashMapCmp) compare_keys);
 	static Record array[SIZE_KEYS];
 	int* keys = (int*) malloc(sizeof(int) * RAND_SIZE);
 		
 	TIME_START()
-	load_data_hashmap(hashmap, argv[1]);
-	printf("SIZE HASHMAP: %d\n", HashMap_size(hashmap));
+	load_data_hashmap(hashmap, filename);
 	TIME_END()
 	printf("Load time HashMap: %f seconds\n", TIME_CHECK());
 
 	TIME_START()
-	load_data_array(array, argv[1]);
+	load_data_array(array, filename);
 	TIME_END()
 	printf("Load time static Array: %f seconds\n", TIME_CHECK());
 
@@ -218,16 +238,22 @@ int main(int argc, char const *argv[]){
 	load_keys(keys);
 	printf("Keys generated correctly!\n");
 
+	int* hashmap_values = (int*) malloc(sizeof(int) * RAND_SIZE);
+
 	TIME_START()
-	int* hashmap_get_keys = get_keys_hashmap(hashmap, keys);
+	int hashmap_value_size = get_values_hashmap(hashmap, hashmap_values, keys);
 	TIME_END()
 	printf("Get values HashMap time: %f seconds\n", TIME_CHECK());
 
+	int* array_values = (int*) malloc(sizeof(int) * RAND_SIZE);
+
 	TIME_START()
-	int* array_get_keys = get_keys_array(array, keys);
+	int array_value_size = get_values_array(array, array_values, keys);
 	TIME_END()
 	printf("Get values static array time: %f seconds\n", TIME_CHECK());
 	
-	check_values(hashmap_get_keys, array_get_keys);
-	printf("Arrays checked correctly\n");
+	if(check_values(hashmap_values, array_values, hashmap_value_size, array_value_size))
+		printf("Arrays checked correctly\n");
+
+	free_data(hashmap, keys, hashmap_values, array_values);
 }

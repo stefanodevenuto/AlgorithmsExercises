@@ -24,7 +24,7 @@ static HashMap* create_test_object(int n_elem, ...){
 	va_list args;
 	va_start(args, n_elem);
 
-	HashMap* result = HashMap_new((HashFunction) hash_fun, (HashMapCmp) compare, 3);
+	HashMap* result = HashMap_new((HashFunction) hash_fun, (HashMapCmp) compare);
 	for(int i = 0; i < n_elem; i++){
 		HashMap_insert(result, int_new(i), int_new(va_arg(args, int)));
 	}
@@ -33,12 +33,15 @@ static HashMap* create_test_object(int n_elem, ...){
 }
 
 static void delete_test_objects(HashMap* hm){
-	int** keys = (int**) HashMap_get_all_keys(hm);
+	int** keys = (int**) malloc(sizeof(*keys) * HashMap_size(hm));
+	HashMap_get_all_keys(hm, (void**) keys);
+
 	for(int i = 0; i < HashMap_size(hm); i++){
 		int* value = HashMap_get(hm, keys[i]);
 		free(value);
 		free(keys[i]);
 	}
+
 	free(keys);
 	HashMap_free(hm);
 }
@@ -110,7 +113,7 @@ static void hash_map_insert_already_present(){
 	int* new_key = int_new(2);
 	int* new_value = int_new(45);
 	
-	HashMap_insert(hm, new_key, new_value);
+	void* old_value = HashMap_insert(hm, new_key, new_value);
 
 	TEST_ASSERT_EQUAL(34, *(int*) HashMap_get(hm,int_new(0)));
 	TEST_ASSERT_EQUAL(78, *(int*) HashMap_get(hm,int_new(1)));
@@ -119,7 +122,8 @@ static void hash_map_insert_already_present(){
 	TEST_ASSERT_EQUAL(4, HashMap_size(hm));
 	
 	free(new_key);
-	//free(new_value);
+	free(old_value);
+
 	delete_test_objects(hm);
 
 }
@@ -134,14 +138,15 @@ static void print_keys(HashMap* hm, int** keys){
 static void hash_map_get_all_keys(){
 	HashMap* hm = create_test_object(4, 34,78,12,90);
 
-	int** hashmap_keys = (int**) HashMap_get_all_keys(hm);
+	int** keys = (int**) malloc(sizeof(*keys) * HashMap_size(hm));
+	HashMap_get_all_keys(hm, (void**) keys);
 
-	//print_keys(hm, hashmap_keys);
+	//print_keys(hm, keys);
 
-	TEST_ASSERT_EQUAL(0, *hashmap_keys[0]);
-	TEST_ASSERT_EQUAL(1, *hashmap_keys[1]);
-	TEST_ASSERT_EQUAL(2, *hashmap_keys[2]);
-	TEST_ASSERT_EQUAL(3, *hashmap_keys[3]);
+	TEST_ASSERT_EQUAL(0, *keys[0]);
+	TEST_ASSERT_EQUAL(1, *keys[1]);
+	TEST_ASSERT_EQUAL(2, *keys[2]);
+	TEST_ASSERT_EQUAL(3, *keys[3]);
 
 	delete_test_objects(hm);
 }

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "hashmap.h"
 
+#define INITIAL_CAPACITY 16
 #define LOAD_FACTOR 0.75
 
 #define FREE_NODE(hnode) HashNode* tmp; \
@@ -35,9 +36,9 @@ HashNode* HashNode_new(void* key, void* value){
 	return hnode;
 }
 
-HashMap* HashMap_new(HashFunction hashfun, HashMapCmp compare, int capacity){
+HashMap* HashMap_new(HashFunction hashfun, HashMapCmp compare){
 	HashMap* result = (HashMap*) malloc(sizeof(HashMap));
-	result->capacity = capacity;
+	result->capacity = INITIAL_CAPACITY;
 	result->array = (HashNode**) calloc(result->capacity, sizeof(HashNode*));
 	result->size = 0;
 	result->max_threshold = result->capacity * LOAD_FACTOR;
@@ -79,8 +80,7 @@ HashNode* list_search(HashNode* head, void* key, HashMapCmp compare){
 
 void HashMap_free(HashMap* hm){
 	for(int i = 0; i < hm->capacity; i++)
-		if(hm->array[i] != NULL)
-			list_free(hm->array[i]);
+		list_free(hm->array[i]);
 		
 	free(hm->array);
 	free(hm);
@@ -99,9 +99,10 @@ static int get_position(HashMap* hm, void* key){
 }
 
 int HashMap_ispresent(HashMap* hm, void* key){
-	int position = hm->hashfun(key) % hm->capacity;
+	int position = get_position(hm, key);
 
-	if(list_search(hm->array[position], key, hm->compare) == NULL) return 0;
+	if(list_search(hm->array[position], key, hm->compare) == NULL)
+		return 0;
 
 	return 1;
 }
@@ -129,20 +130,26 @@ void rehash(HashMap* hm){
 	hm->array = new_array;
 }
 
-void HashMap_insert(HashMap* hm, void* key, void* value){
+void* HashMap_insert(HashMap* hm, void* key, void* value){
 
-	if(!HashMap_ispresent(hm, key)){
-		int position = get_position(hm, key);
-		HashNode* new_hnode = HashNode_new(key, value);
-		list_insert(&(hm->array[position]), &new_hnode);
-		hm->size++;
-		if(hm->size == hm->max_threshold)
-			rehash(hm);
-	}else{
-		int position = get_position(hm, key);
-		HashNode* hnode = list_search(hm->array[position], key, hm->compare);
+	int position = get_position(hm, key);
+	HashNode* hnode = list_search(hm->array[position], key, hm->compare);
+
+	if(hnode != NULL){
+		void* old_value = hnode->value;
 		hnode->value = value;
+
+		return old_value;
 	}
+
+	HashNode* new_hnode = HashNode_new(key, value);
+	list_insert(&(hm->array[position]), &new_hnode);
+	hm->size++;
+
+	if(hm->size == hm->max_threshold)
+		rehash(hm);
+
+	return NULL;
 }
 
 void HashMap_remove(HashMap* hm, void* key){
@@ -159,8 +166,8 @@ void* HashMap_get(HashMap* hm, void* key){
 	HashNode* result = list_search(hm->array[position], key, hm->compare);
 	if(result != NULL)
 		return result->value;
-	else
-		return NULL;
+
+	return NULL;
 }
 
 void HashMap_remove_all(HashMap* hm){
@@ -173,19 +180,15 @@ void HashMap_remove_all(HashMap* hm){
 	hm->size = 0;
 }
 
-void** HashMap_get_all_keys(HashMap* hm){
-	void** keys = (void**) malloc(sizeof(void*) * hm->size);
+void HashMap_get_all_keys(HashMap* hm, void** keys){
+	//void** keys = (void**) malloc(sizeof(void*) * hm->size);
 	int k_i = 0;
 	for(int i = 0; i < hm->capacity; i++){
-		if(hm->array[i] != NULL){
-			HashNode* head = hm->array[i];
-			while(head != NULL){
-				keys[k_i] = head->key;
-				k_i++;
-				head = head->next;
-			}
+		HashNode* head = hm->array[i];
+		while(head != NULL){
+			keys[k_i] = head->key;
+			k_i++;
+			head = head->next;
 		}
 	}
-
-	return keys;
 }
