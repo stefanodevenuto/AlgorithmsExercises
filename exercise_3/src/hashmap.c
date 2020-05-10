@@ -181,7 +181,6 @@ void HashMap_remove_all(HashMap* hm){
 }
 
 void HashMap_get_all_keys(HashMap* hm, void** keys){
-	//void** keys = (void**) malloc(sizeof(void*) * hm->size);
 	int k_i = 0;
 	for(int i = 0; i < hm->capacity; i++){
 		HashNode* head = hm->array[i];

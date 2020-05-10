@@ -142,6 +142,7 @@ void load_data_array(Record array[], const char* filename){
 }
 
 void load_keys(int* keys){
+	srand(time(NULL));
 	for(int i = 0; i < RAND_SIZE; i++){
 		keys[i] = rand() % (RAND_SIZE+1);
 	}
@@ -243,14 +244,14 @@ int main(int argc, char const *argv[]){
 	TIME_START()
 	int hashmap_value_size = get_values_hashmap(hashmap, hashmap_values, keys);
 	TIME_END()
-	printf("Get values HashMap time: %f seconds\n", TIME_CHECK());
+	printf("HashMap got %d values in %f seconds\n", hashmap_value_size,TIME_CHECK());
 
 	int* array_values = (int*) malloc(sizeof(int) * RAND_SIZE);
 
 	TIME_START()
 	int array_value_size = get_values_array(array, array_values, keys);
 	TIME_END()
-	printf("Get values static array time: %f seconds\n", TIME_CHECK());
+	printf("Static array got %d values in %f seconds\n", array_value_size, TIME_CHECK());
 	
 	if(check_values(hashmap_values, array_values, hashmap_value_size, array_value_size))
 		printf("Arrays checked correctly\n");
