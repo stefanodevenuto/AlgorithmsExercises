@@ -3,8 +3,13 @@
 #include <string.h>
 #include <time.h>
 #include "sorting.h"
+#include "dyn_array.h"
 
 #define ERROR_EXIT_CODE 1
+
+#define TIME_START() time = clock();
+#define TIME_END() time = clock() - time;
+#define TIME_CHECK() ((double) time) / CLOCKS_PER_SEC
 
 // Defines the type of records read from file
 typedef struct {
@@ -12,12 +17,6 @@ typedef struct {
     int second_field;
     float third_field;
 } Record;
-
-// Structure that contains the Records
-typedef struct {
-	int size;
-	Record** records;
-} RecordArray;
 
 // Options accepted by this program
 typedef struct {
@@ -44,15 +43,6 @@ int compare_third_field(Record* rec1, Record* rec2) {
 		return -1;
 	else 
 		return 0;
-}
-
-// Initialize a new RecordArray
-RecordArray* new_record_array(){
-	RecordArray* array = (RecordArray*) malloc(sizeof(RecordArray));
-    array->records = (Record**) malloc(sizeof(Record*));
-    array->size = 0;
-
-    return array;
 }
 
 void print_usage() {
@@ -100,7 +90,7 @@ Options parse_options(int argc, char const *argv[]) {
     return options;
 }
 
-void load_data( RecordArray* array, char const* filename ) {
+void load_data( DynArray* array, char const* filename ) {
     FILE* file = fopen(filename, "r");
 
     #define MAX_BUF_LEN 1024
@@ -111,6 +101,7 @@ void load_data( RecordArray* array, char const* filename ) {
 
     int lineno = 0;
     while(!feof(file)) {
+
         Record* record = (Record*) malloc(sizeof(Record));
 
         int n = fscanf(file, "%*d,%1024[^,],%d,%f\n", first_field, &second_field, &third_field);
@@ -129,32 +120,27 @@ void load_data( RecordArray* array, char const* filename ) {
         record->second_field = second_field;
         record->third_field = third_field;
 
-        array->records = (Record**) realloc(array->records, sizeof(Record*) * lineno);
-
-        array->records[lineno - 1] = record;
+        DynArray_insert(array, record);
     }
-
-    array->size = lineno;
 }
  
-void print_array(RecordArray* array) {
-    for(int i=0; i < array->size; i++) {
-        Record* rec = array->records[i];
-        printf("first: %30s\t", rec->first_field);
-        printf("second: %10d\t", rec->second_field);
-        printf("third: %20f\n",rec->third_field);
+void print_array(DynArray* array) {
+    for(int i=0; i < DynArray_size(array); i++) {
+        Record* rec = DynArray_get(array, i);
+        printf("First: %30s\t", rec->first_field);
+        printf("Second: %10d\t", rec->second_field);
+        printf("Third: %20f\n",rec->third_field);
     }
 }
 
-void free_data(RecordArray* array) {
-    for(int i=0; i<array->size; i++) {
-        Record* rec = array->records[i];
+void free_data(DynArray* array) {
+    for(int i=0; i<DynArray_size(array); i++) {
+        Record* rec = DynArray_get(array, i);
         free(rec->first_field);
         free(rec);
     }
 
-    free(array->records);
-    free(array);
+    DynArray_free(array);
 }
 
 // MAIN
@@ -162,18 +148,19 @@ void free_data(RecordArray* array) {
 int main(int argc, char const *argv[]){
 
 	Options options = parse_options(argc, argv);
-	RecordArray* array = new_record_array();
+    DynArray* array = DynArray_new();
+    time_t time;
+
 	load_data(array, options.filename);
 
-	time_t time;
-	time = clock();
+	TIME_START()
     if(options.alghoritm)
-    	quick_sort((void**)array->records, array->size, (SortingCmp) options.comparison_fun);
+        quick_sort(DynArray_get_raw_array(array), DynArray_size(array), (SortingCmp) options.comparison_fun);
     else
-    	insertion_sort((void**)array->records, array->size, (SortingCmp) options.comparison_fun);
-    time = clock() - time;
-    //print_array(array);
+        insertion_sort(DynArray_get_raw_array(array), DynArray_size(array), (SortingCmp) options.comparison_fun);
+    TIME_END()
+
     free_data(array);
 
-    printf("The method took %f seconds\n", ((double) time) / CLOCKS_PER_SEC);
+    printf("The method took %f seconds\n", TIME_CHECK());
 }

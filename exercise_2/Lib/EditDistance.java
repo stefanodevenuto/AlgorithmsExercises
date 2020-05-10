@@ -8,13 +8,21 @@ public class EditDistance{
 		return Math.min(a, Math.min(b,c));
 	}
 
-	public static int editDistance(String str1, String str2){
+	public static int editDistanceImplementation(String str1, String str2, int i, int j){
 		if(str1.length() == 0)
-			return str2.length();
+			return str2.length() - j;
 		if(str2.length() == 0)
-			return str1.length();
+			return str1.length() - i;
 
-		return min(1 + editDistance(str1, str2.substring(1)), 1 + editDistance(str1.substring(1), str2), str1.charAt(0) == str2.charAt(0) ? editDistance(str1.substring(1), str2.substring(1)) : Integer.MAX_VALUE);
+		return min(1 + editDistanceImplementation(str1, str2, i, j+1), 1 + editDistanceImplementation(str1, str2, i+1, j), str1.charAt(i) == str2.charAt(j) ? editDistanceImplementation(str1, str2, i+1, j+1) : Integer.MAX_VALUE);
+	}
+
+	public static int editDistance(String str1, String str2){
+		if(str1 == null && str2 == null) return -1;
+		else if(str1 == null) return str2.length();
+		else if(str2 == null) return str1.length();
+
+		return editDistanceImplementation(str1, str2, 0, 0);
 	}
 
 	public static int editDistanceDyn(String str1, String str2){

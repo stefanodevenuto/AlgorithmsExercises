@@ -31,7 +31,7 @@ public class editDistanceApp{
 		Scanner s = new Scanner(new File(args[index]));
 		ArrayList<String> list = new ArrayList<String>();
 		while (s.hasNext()){
-		    list.add(s.next());
+		    list.add(s.next().replaceAll("[.,:]",""));
 		}
 		s.close();
 
@@ -47,7 +47,10 @@ public class editDistanceApp{
 
 		for(int i = 0; i < correctMeList.size(); i++){
       		for(String dictionaryWord : dictionaryList){
-      			distances.get(i).add(new StringDistance(dictionaryWord,EditDistance.editDistanceDyn(correctMeList.get(i), dictionaryWord)));
+      			int distance = EditDistance.editDistanceDyn(correctMeList.get(i), dictionaryWord);
+      			distances.get(i).add(new StringDistance(dictionaryWord, distance));
+
+      			if(distance == 0) break;
       		}
       	}
 

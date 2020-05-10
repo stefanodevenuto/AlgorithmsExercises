@@ -37,9 +37,9 @@ void insertion_sort(void** array, int n_elem, SortingCmp compare){
 static void quick_sort_implementation(void** array, int start, int end, SortingCmp compare){
 	if(end > start){
 		int p = partition(array, start, end, compare);
-		if(p > start)
+		//if(p > start)
 			quick_sort_implementation(array, start, p-1, compare);
-		if(p < end - 1)
+		//if(p < end - 1)
 			quick_sort_implementation(array, p+1, end, compare);
 	}
 }
