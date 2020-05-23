@@ -33,7 +33,7 @@ Graph* load_tree(const char* filename){
     int weight;
 
     int n = fscanf(file, "%d\n", &nodes_number);
-    //printf("n_nodes: %d\n", nodes_number);
+
     Graph* graph = Graph_new(nodes_number);
     int* depth = (int*) calloc(nodes_number, sizeof(int));
 
@@ -44,15 +44,13 @@ Graph* load_tree(const char* filename){
 
     int level = Graph_dfs(graph, 1, 0, depth);
 
-    
+    n = fscanf(file, "%d\n", &query_number);
 
-    Graph_print_parent(graph, nodes_number,depth);
-    printf("TOTAL Height: %d\n", level);
+    for(int i = 0; i < query_number; i++){
+        n = fscanf(file, "%d %d %d\n", &source, &dest, &weight);
+        printf("LCA (%d, %d): %d\n", source, dest, Graph_LCA(graph, source, dest, depth, level));
+    }
 
-
-    printf("LCA: %d\n", Graph_LCA(graph, 3, 5, depth, level));
-
-    //Graph_print(graph);
 }
 
 
