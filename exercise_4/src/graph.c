@@ -84,11 +84,14 @@ int Graph_dfs(Graph* g ,int node, int arrival, int* depth) {
 
 	Node* current = g->array[POS(node)];
 
-	depth[POS(node)] = depth[POS(arrival)] + 1; // set depth
+	if(POS(arrival) == -1)
+		depth[POS(node)] = 1;
+	else
+		depth[POS(node)] = depth[POS(arrival)] + 1; // set depth
 	if(arrival != 0)
 		current->parent = arrival; // set parent
 
-	printf("%d\n", node); // node visited
+	//printf("%d\n", node); // node visited
 
 	int height = 0;
 
@@ -103,7 +106,7 @@ int Graph_dfs(Graph* g ,int node, int arrival, int* depth) {
 	return height + 1;
 }
 
-int Graph_LCA(Graph* g, int a, int b, int* depth, int level){
+int Graph_LCA(Graph* g, int a, int b, int* depth, int level, int weight){
 
 	int diff;
 
@@ -117,23 +120,38 @@ int Graph_LCA(Graph* g, int a, int b, int* depth, int level){
 	    	break; 
 	    }
 
+	    //printf("Nodo: %d, Peso Nodo: %d, Peso compare: %d\n", b, g->array[POS(b)]->weight, weight);
+
+	    if(g->array[POS(b)]->weight >= weight)
+	    	return 1;
+
 	    b = g->array[POS(b)]->parent;
 	}
 
-	if (a == b) 
-	    return a;
-    
-    Node* first = g->array[POS(a)];
-    Node* second = g->array[POS(b)];
+	if (a == b){
+		//printf("Nodo A: %d, Nodo B: %d, Peso Nodo A: %d, Peso nodo B: %d, Peso compare: %d\n", a, b, g->array[POS(a)]->weight, g->array[POS(b)]->weight, weight);
+		return 0;
+	}
   
     for (int i = level - 1; i >= 0; i--){
-        if (first->parent != second->parent){
-            first = g->array[POS(first->parent)];
-            second = g->array[POS(second->parent)];
+        if (a != b){
+        	//printf("Nodo A: %d, Nodo B: %d, Peso Nodo A: %d, Peso nodo B: %d, Peso compare: %d\n", a, b, g->array[POS(a)]->weight, g->array[POS(b)]->weight, weight);
+
+        	if(g->array[POS(a)]->weight >= weight || g->array[POS(b)]->weight >= weight){
+        		return 1;
+        	}
+
+            a = g->array[POS(a)]->parent;
+            b = g->array[POS(b)]->parent;
+        }else{
+        	printf("Nodo A: %d, Nodo B: %d, Peso Nodo A: %d, Peso nodo B: %d, Peso compare: %d\n", a, b, g->array[POS(a)]->weight, g->array[POS(b)]->weight, weight);
+        	break;
         }
     }
 
-    return first->parent; 
+    //printf("%d, %d\n", g->array[POS(a)]->parent, g->array[POS(b)]->parent);
+
+    return 0; 
 }
 
 void Graph_print_parent(Graph* g, int nodes_number ,int* depth){

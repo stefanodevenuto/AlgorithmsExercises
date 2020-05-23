@@ -44,11 +44,28 @@ Graph* load_tree(const char* filename){
 
     int level = Graph_dfs(graph, 1, 0, depth);
 
+    //Graph_print_parent(graph, nodes_number, depth);
+    int lca = 0;
+
     n = fscanf(file, "%d\n", &query_number);
+
+    //printf("LCA: %d\n", Graph_LCA(graph, 2, 5, depth, level, weight));
 
     for(int i = 0; i < query_number; i++){
         n = fscanf(file, "%d %d %d\n", &source, &dest, &weight);
-        printf("LCA (%d, %d): %d\n", source, dest, Graph_LCA(graph, source, dest, depth, level));
+        //level = Graph_dfs(graph, source, dest, depth);
+
+        //printf("INTERROGAZIONE: %d -----> %d con costo %d\n", source, dest, weight);
+        lca = Graph_LCA(graph, source, dest, depth, level, weight);
+
+        if(lca){
+            printf("YES\n");
+            //write YES
+        }else{
+            printf("NO\n");
+            //write NO
+        }
+        //printf("LCA (%d, %d): %d\n", source, dest, );
     }
 
 }
@@ -60,7 +77,7 @@ int main(int argc, char const *argv[] ){
     TIME_START()
 	Graph* graph = load_tree(input_filename);
     TIME_END()
-    printf("Load time Graph: %f seconds\n", TIME_CHECK());
+    //printf("Load time Graph: %f seconds\n", TIME_CHECK());
 
     
     
