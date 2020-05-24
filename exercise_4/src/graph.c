@@ -58,9 +58,9 @@ void Graph_print(Graph* g){
 
 	for(int i = 1; i <= g->n_vertex; i++){
 		Node* adj = g->array[POS(i)];
-		printf("%d: ", i);
+		printf("%d:\t", i);
 		while(adj != NULL){
-			printf("%d -> ", adj->key);
+			printf("%d | %d -> ", adj->key, adj->weight);
 			adj = adj->next;
 		}
 		printf("\n");
@@ -80,7 +80,7 @@ void Graph_remove_edge(Graph* g, int source, int dest){
 	list_remove(&(g->array[dest]));
 }
 
-int Graph_dfs(Graph* g ,int node, int arrival, int* depth) {
+int Graph_dfs(Graph* g ,int node, int arrival, int* depth, int* weight_array) {
 
 	Node* current = g->array[POS(node)];
 
@@ -88,17 +88,24 @@ int Graph_dfs(Graph* g ,int node, int arrival, int* depth) {
 		depth[POS(node)] = 1;
 	else
 		depth[POS(node)] = depth[POS(arrival)] + 1; // set depth
-	if(arrival != 0)
-		current->parent = arrival; // set parent
 
-	//printf("%d\n", node); // node visited
+	if(arrival != 0){
+		current->parent = arrival; // set parent
+	}
 
 	int height = 0;
 
 	while(current != NULL){
+		
 		// printf("Checko %d con %d\n", current->key, arrival);
 		if(current->key != arrival){
-			height = max(height, Graph_dfs(g, current->key, node, depth));
+			height = max(height, Graph_dfs(g, current->key, node, depth, weight_array));
+		}
+
+		//printf("Nodo: %d, Padre: %d\n", node ,current->parent);
+
+		if(current->key == arrival){
+			weight_array[POS(node)] = current->weight;
 		}
 		current = current->next;
 	}
@@ -106,7 +113,7 @@ int Graph_dfs(Graph* g ,int node, int arrival, int* depth) {
 	return height + 1;
 }
 
-int Graph_LCA(Graph* g, int a, int b, int* depth, int level, int weight){
+int Graph_LCA(Graph* g, int a, int b, int* depth, int* weight_array, int level, int weight, int test){
 
 	int diff;
 
@@ -119,45 +126,52 @@ int Graph_LCA(Graph* g, int a, int b, int* depth, int level, int weight){
 	    if (diff == 0){
 	    	break; 
 	    }
+	    
 
-	    //printf("Nodo: %d, Peso Nodo: %d, Peso compare: %d\n", b, g->array[POS(b)]->weight, weight);
-
-	    if(g->array[POS(b)]->weight >= weight)
+	    if(weight_array[POS(b)] > weight)
 	    	return 1;
 
 	    b = g->array[POS(b)]->parent;
 	}
 
 	if (a == b){
-		//printf("Nodo A: %d, Nodo B: %d, Peso Nodo A: %d, Peso nodo B: %d, Peso compare: %d\n", a, b, g->array[POS(a)]->weight, g->array[POS(b)]->weight, weight);
+		
 		return 0;
 	}
   
     for (int i = level - 1; i >= 0; i--){
         if (a != b){
-        	//printf("Nodo A: %d, Nodo B: %d, Peso Nodo A: %d, Peso nodo B: %d, Peso compare: %d\n", a, b, g->array[POS(a)]->weight, g->array[POS(b)]->weight, weight);
-
-        	if(g->array[POS(a)]->weight >= weight || g->array[POS(b)]->weight >= weight){
+        	
+        	if(weight_array[POS(a)] > weight || weight_array[POS(b)] > weight){
         		return 1;
         	}
 
             a = g->array[POS(a)]->parent;
             b = g->array[POS(b)]->parent;
         }else{
-        	printf("Nodo A: %d, Nodo B: %d, Peso Nodo A: %d, Peso nodo B: %d, Peso compare: %d\n", a, b, g->array[POS(a)]->weight, g->array[POS(b)]->weight, weight);
         	break;
         }
     }
 
-    //printf("%d, %d\n", g->array[POS(a)]->parent, g->array[POS(b)]->parent);
+    
+
+    
 
     return 0; 
 }
 
-void Graph_print_parent(Graph* g, int nodes_number ,int* depth){
-
+void Graph_print_parent(Graph* g, int nodes_number ,int* depth, int* weight_array){
+	int peso = -1;
 	for(int i = 1; i <= nodes_number; i++){
-		printf("%d : Parent: %d, Depth: %d\n",i ,g->array[POS(i)]->parent, depth[POS(i)]);
+		if(g->array[POS(g->array[POS(i)]->parent)] != NULL){
+			peso = g->array[POS(g->array[POS(i)]->parent)]->weight;
+		}else peso = -1;
+		printf("%d : Parent: %d, Weight: %d, Depth: %d\n",i ,g->array[POS(i)]->parent, peso, depth[POS(i)]);
+	}
+	printf("PROVE\n");
+	
+	for(int i = 1; i <= nodes_number; i++){
+		printf("Node: %d, Parent: %d, Weight: %d\n", i, g->array[POS(i)]->parent, weight_array[POS(i)]);
 	}
 	
 }

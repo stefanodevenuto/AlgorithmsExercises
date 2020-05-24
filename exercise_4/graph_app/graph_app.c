@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 #include "graph.h"
 
 #define TIME_START() time = clock();
@@ -36,13 +37,16 @@ Graph* load_tree(const char* filename){
 
     Graph* graph = Graph_new(nodes_number);
     int* depth = (int*) calloc(nodes_number, sizeof(int));
+    int* weight_array = (int*) malloc(nodes_number * sizeof(int));
+
+    memset(weight_array, -1, nodes_number * sizeof(int));
 
     for(int i = 0; i < nodes_number-1; i++){                        // -1 poichè vi sono N-1 archi
         n = fscanf(file, "%d %d %d\n", &source, &dest, &weight);
         Graph_add_edge(graph, source, dest, weight);
     }
 
-    int level = Graph_dfs(graph, 1, 0, depth);
+    int level = Graph_dfs(graph, 1, 0, depth, weight_array);
 
     //Graph_print_parent(graph, nodes_number, depth);
     int lca = 0;
@@ -56,7 +60,7 @@ Graph* load_tree(const char* filename){
         //level = Graph_dfs(graph, source, dest, depth);
 
         //printf("INTERROGAZIONE: %d -----> %d con costo %d\n", source, dest, weight);
-        lca = Graph_LCA(graph, source, dest, depth, level, weight);
+        lca = Graph_LCA(graph, source, dest, depth, weight_array, level, weight, i+1);
 
         if(lca){
             printf("YES\n");
@@ -68,6 +72,8 @@ Graph* load_tree(const char* filename){
         //printf("LCA (%d, %d): %d\n", source, dest, );
     }
 
+    //Graph_print_parent(graph, nodes_number ,depth, weight_array);
+    //Graph_print(graph);
 }
 
 
