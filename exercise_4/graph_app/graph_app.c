@@ -46,34 +46,29 @@ Graph* load_tree(const char* filename){
         Graph_add_edge(graph, source, dest, weight);
     }
 
+    int max_edge = Graph_max_edge(graph);
+
     int level = Graph_dfs(graph, 1, 0, depth, weight_array);
 
-    //Graph_print_parent(graph, nodes_number, depth);
     int lca = 0;
 
     n = fscanf(file, "%d\n", &query_number);
 
-    //printf("LCA: %d\n", Graph_LCA(graph, 2, 5, depth, level, weight));
 
     for(int i = 0; i < query_number; i++){
         n = fscanf(file, "%d %d %d\n", &source, &dest, &weight);
-        //level = Graph_dfs(graph, source, dest, depth);
-
-        //printf("INTERROGAZIONE: %d -----> %d con costo %d\n", source, dest, weight);
-        lca = Graph_LCA(graph, source, dest, depth, weight_array, level, weight, i+1);
-
-        if(lca){
-            printf("YES\n");
-            //write YES
-        }else{
+        if(weight > max_edge)
             printf("NO\n");
-            //write NO
-        }
-        //printf("LCA (%d, %d): %d\n", source, dest, );
-    }
+        else{
+            lca = Graph_LCA(graph, source, dest, depth, weight_array, level, weight, i+1);
 
-    //Graph_print_parent(graph, nodes_number ,depth, weight_array);
-    //Graph_print(graph);
+            if(lca){
+                printf("YES\n");
+            }else{
+                printf("NO\n");
+            }
+        }
+    }
 }
 
 
@@ -84,10 +79,4 @@ int main(int argc, char const *argv[] ){
 	Graph* graph = load_tree(input_filename);
     TIME_END()
     //printf("Load time Graph: %f seconds\n", TIME_CHECK());
-
-    
-    
-    //Graph_dfs(graph, 2, 1);
-
-	//answer_queries(tree);
 }

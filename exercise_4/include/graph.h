@@ -16,3 +16,5 @@ void Graph_print_parent(Graph* g, int nodes_number, int* depth, int* weight_arra
 
 void Graph_print(Graph* g);
 
+int Graph_max_edge(Graph* g);
+
