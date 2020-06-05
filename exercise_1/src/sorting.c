@@ -5,22 +5,26 @@
 						  array[i] = array[j]; \
 						  array[j] = tmp;
 
-static int partition(void** array, int start, int end, SortingCmp compare){
-	int i = start + 1;
-	int j = end;
-	while(i <= j){
-		if(compare(array[i], array[start]) <= 0) i++;
-		else if(compare(array[j], array[start]) > 0) j--;
-		else{
-			SWAP(array, i, j)
-			i++;
-			j--;
-		}
+static void partition(void** array, int left, int right, int* less, int* greater, SortingCmp compare){
+
+	int i = left;
+    void** pivot = array[left];
+
+	*less = left;
+    *greater = right;
+
+	while(i <= *greater){
+	    if(compare(array[i], pivot) < 0){
+	        SWAP(array, *less, i)
+	        *less += 1;
+	        i++;
+	    }else if(compare(array[i], pivot) > 0){
+	        SWAP(array, i, *greater)
+	        *greater -= 1;
+	    }else{
+	        i++;
+	    }
 	}
-
-	SWAP(array, start, j)
-
-	return j;
 }
 
 void insertion_sort(void** array, int n_elem, SortingCmp compare){	
@@ -35,12 +39,12 @@ void insertion_sort(void** array, int n_elem, SortingCmp compare){
 }
 
 static void quick_sort_implementation(void** array, int start, int end, SortingCmp compare){
-	if(end > start){
-		int p = partition(array, start, end, compare);
-		if(p > start)
-			quick_sort_implementation(array, start, p-1, compare);
-		if(p < end - 1)
-			quick_sort_implementation(array, p+1, end, compare);
+	if(start < end){
+		int left;
+		int right;
+		partition(array, start, end, &left, &right, compare);
+		quick_sort_implementation(array, start, left - 1, compare);
+		quick_sort_implementation(array, right + 1, end, compare);
 	}
 }
 

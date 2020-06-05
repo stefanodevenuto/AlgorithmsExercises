@@ -80,28 +80,28 @@ void Graph_add_edge(Graph* g, int source, int dest, int weight){
 	list_insert(&(g->array[POS(dest)]), &new_node_source);
 }
 
-int Graph_dfs(Graph* g ,int node, int arrival, int* depth, int* weight_array) {
+int Graph_dfs(Graph* g ,int node, int parent, int* depth, int* weight_array) {
 
 	Node* current = g->array[POS(node)];
 
-	if(POS(arrival) == -1)
+	if(POS(parent) == -1)
 		depth[POS(node)] = 1;
 	else
-		depth[POS(node)] = depth[POS(arrival)] + 1; // set depth
+		depth[POS(node)] = depth[POS(parent)] + 1;
 
-	if(arrival != 0){
-		current->parent = arrival; // set parent
+	if(parent != 0){
+		current->parent = parent;
 	}
 
 	int height = 0;
 
 	while(current != NULL){
 		
-		if(current->key != arrival){
+		if(current->key != parent){
 			height = max(height, Graph_dfs(g, current->key, node, depth, weight_array));
 		}
 
-		if(current->key == arrival){
+		if(current->key == parent){
 			weight_array[POS(node)] = current->weight;
 		}
 		current = current->next;
@@ -110,37 +110,37 @@ int Graph_dfs(Graph* g ,int node, int arrival, int* depth, int* weight_array) {
 	return height + 1;
 }
 
-int Graph_LCA(Graph* g, int a, int b, int* depth, int* weight_array, int level, int weight, int test){
+int Graph_answer_query(Graph* g, int first, int second, int* depth, int* weight_array, int level, int weight, int test){
 
 	int diff;
 
-    if (depth[POS(b)] < depth[POS(a)]){
-    	SWAP(a,b)
+    if (depth[POS(second)] < depth[POS(first)]){
+    	SWAP(first,second)
     }
 
 	for (int i = 0; i < level; i++){
-		diff = depth[POS(b)] - depth[POS(a)];
+		diff = depth[POS(second)] - depth[POS(first)];
 
 	    if (diff == 0) break; 
 	    
-	    if(weight_array[POS(b)] > weight)
+	    if(weight_array[POS(second)] > weight)
 	    	return 1;
 
-	    b = g->array[POS(b)]->parent;
+	    second = g->array[POS(second)]->parent;
 	}
 
-	if (a == b)
+	if (first == second)
 		return 0;
   
     for (int i = level - 1; i >= 0; i--){
-        if (a != b){
+        if (first != second){
         	
-        	if(weight_array[POS(a)] > weight || weight_array[POS(b)] > weight){
+        	if(weight_array[POS(first)] > weight || weight_array[POS(second)] > weight){
         		return 1;
         	}
 
-            a = g->array[POS(a)]->parent;
-            b = g->array[POS(b)]->parent;
+            first = g->array[POS(first)]->parent;
+            second = g->array[POS(second)]->parent;
         }else break;
     }
 
@@ -149,20 +149,4 @@ int Graph_LCA(Graph* g, int a, int b, int* depth, int* weight_array, int level, 
 
 int Graph_max_edge(Graph* g){
 	return g->max_edge;
-}
-
-void Graph_print_parent(Graph* g, int nodes_number ,int* depth, int* weight_array){
-	int peso = -1;
-	for(int i = 1; i <= nodes_number; i++){
-		if(g->array[POS(g->array[POS(i)]->parent)] != NULL){
-			peso = g->array[POS(g->array[POS(i)]->parent)]->weight;
-		}else peso = -1;
-		printf("%d : Parent: %d, Weight: %d, Depth: %d\n",i ,g->array[POS(i)]->parent, peso, depth[POS(i)]);
-	}
-	printf("PROVE\n");
-	
-	for(int i = 1; i <= nodes_number; i++){
-		printf("Node: %d, Parent: %d, Weight: %d\n", i, g->array[POS(i)]->parent, weight_array[POS(i)]);
-	}
-	
 }

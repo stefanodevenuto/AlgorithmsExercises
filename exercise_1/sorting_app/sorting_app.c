@@ -20,8 +20,7 @@ typedef struct {
 
 // Options accepted by this program
 typedef struct {
-    SortingCmp comparison_fun;  	// comparison function to be used 
-                                    // when sorting the array by field
+    SortingCmp comparison_fun;  	// comparison function used to sort by field 
     int alghoritm;					// type of sorting alghoritm
     char const* filename;           // name of the file to be read
 } Options;

@@ -23,9 +23,7 @@ char const* parse_options(int argc, char const *argv[]) {
     return filename;
 }
 
-Graph* load_tree(){
-
-	//FILE* file = fopen(filename, "r");
+void load_and_answer(){
 
     int nodes_number;
     int query_number;
@@ -39,18 +37,14 @@ Graph* load_tree(){
     int* depth = (int*) calloc(nodes_number, sizeof(int));
     int* weight_array = (int*) malloc(nodes_number * sizeof(int));
 
-    memset(weight_array, -1, nodes_number * sizeof(int));  // non serve, FUNZIONA SENZA
-
-    for(int i = 0; i < nodes_number-1; i++){                        // -1 poichè vi sono N-1 archi
+    for(int i = 0; i < nodes_number-1; i++){
         n = fscanf(stdin, "%d %d %d\n", &source, &dest, &weight);
         Graph_add_edge(graph, source, dest, weight);
     }
 
     int max_edge = Graph_max_edge(graph);
-
     int level = Graph_dfs(graph, 1, 0, depth, weight_array);
-
-    int lca = 0;
+    int result;
 
     n = fscanf(stdin, "%d\n", &query_number);
 
@@ -59,9 +53,9 @@ Graph* load_tree(){
         if(weight > max_edge)
             printf("NO\n");
         else{
-            lca = Graph_LCA(graph, source, dest, depth, weight_array, level, weight, i+1);
+            result = Graph_answer_query(graph, source, dest, depth, weight_array, level, weight, i+1);
 
-            if(lca){
+            if(result){
                 printf("YES\n");
             }else{
                 printf("NO\n");
@@ -72,10 +66,5 @@ Graph* load_tree(){
 
 
 int main(int argc, char const *argv[] ){
-	//char const* input_filename = parse_options(argc, argv);
-    time_t  time;
-    TIME_START()
-	Graph* graph = load_tree();
-    TIME_END()
-    //printf("Load time Graph: %f seconds\n", TIME_CHECK());
+	load_and_answer();
 }

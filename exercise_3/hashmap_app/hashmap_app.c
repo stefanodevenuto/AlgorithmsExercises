@@ -243,6 +243,8 @@ void free_data(HashMap* hashmap, int* keys, int* hashmap_values, int* array_valu
 	HashMap_free(hashmap);
 }
 
+// MAIN
+// Usage: hashmap_app <filename>
 int main(int argc, char const *argv[]){
 
 	char const* filename = parse_options(argc, argv);
