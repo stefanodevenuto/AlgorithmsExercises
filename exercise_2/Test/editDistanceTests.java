@@ -55,5 +55,5 @@ public class editDistanceTests{
 	public void editDistanceDynRandomString(){
 		assertEquals(EditDistance.editDistanceDyn("cassa", "casa"), 1);
 	}
-
+	
 }

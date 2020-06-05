@@ -22,6 +22,7 @@ public class editDistanceApp{
 		System.out.println("Usage:\njava < path to correctme file > < dictionary path >");
 	}
 
+	// Get the words and store them 
 	public static ArrayList<String> loadData(String[] args, int index) throws Exception{
 
 		if(args.length != 2){
@@ -31,57 +32,40 @@ public class editDistanceApp{
 		Scanner s = new Scanner(new File(args[index]));
 		ArrayList<String> list = new ArrayList<String>();
 		while (s.hasNext()){
-		    list.add(s.next().replaceAll("[.,:]",""));
+		    list.add(s.next().replaceAll("[.,:]","").toLowerCase());
 		}
 		s.close();
 
 		return list;
 	}
 
+	// Get the best distances between the to-be-corrected word and the dictionary words
 	public static ArrayList<ArrayList<StringDistance>> getDistances(ArrayList<String> dictionaryList, ArrayList<String> correctMeList){
 		ArrayList<ArrayList<StringDistance>> distances = new ArrayList<ArrayList<StringDistance>>();
+		int min;
 
 		for(int i = 0; i < correctMeList.size(); i++){
 			distances.add(new ArrayList<StringDistance>());
 		}
 
 		for(int i = 0; i < correctMeList.size(); i++){
+			min = Integer.MAX_VALUE;
       		for(String dictionaryWord : dictionaryList){
       			int distance = EditDistance.editDistanceDyn(correctMeList.get(i), dictionaryWord);
-      			distances.get(i).add(new StringDistance(dictionaryWord, distance));
+
+      			if(distance < min){
+      				distances.get(i).clear();
+      				min = distance;
+      			}
+
+      			if(distance == min)
+      				distances.get(i).add(new StringDistance(dictionaryWord, distance));
 
       			if(distance == 0) break;
       		}
       	}
 
       	return distances;
-	}
-
-	public static ArrayList<ArrayList<StringDistance>> getMinDistanceArray(ArrayList<ArrayList<StringDistance>> distances){
-		ArrayList<ArrayList<StringDistance>> minDistanceArray = new ArrayList<ArrayList<StringDistance>>();
-
-		for(ArrayList<StringDistance> list : distances){
-			minDistanceArray.add(getMinDuplicates(list));
-		}
-
-		return minDistanceArray;
-	}
-
-	public static ArrayList<StringDistance> getMinDuplicates(ArrayList<StringDistance> list){
-		ArrayList<StringDistance> minDuplicatesArray = new ArrayList<StringDistance>();
-		StringDistance minString = list.get(0);
-
-		for(StringDistance current : list){
-			if(current.distance <= minString.distance)
-				minString = current;
-		}
-
-		for(StringDistance current : list){
-			if(current.distance == minString.distance)
-				minDuplicatesArray.add(current);
-		}
-
-		return minDuplicatesArray;
 	}
 
 	public static void printResults(ArrayList<ArrayList<StringDistance>> result, ArrayList<String> strings){
@@ -101,12 +85,10 @@ public class editDistanceApp{
 		try{
 			ArrayList<String> correctMeList = loadData(args, 0);
 	      	ArrayList<String> dictionaryList = loadData(args, 1);
-	      	
+
 	      	ArrayList<ArrayList<StringDistance>> distances = getDistances(dictionaryList, correctMeList);
+	      	printResults(distances, correctMeList);
 
-	      	ArrayList<ArrayList<StringDistance>> minEditDistanceArray = getMinDistanceArray(distances);
-
-	    	printResults(minEditDistanceArray, correctMeList);
 	    }catch(Exception e){
 	    	System.out.println(e);
 	    	printUsage();

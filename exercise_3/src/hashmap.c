@@ -26,7 +26,7 @@ struct _HashMap{
 	HashMapCmp compare;
 };
 
-HashNode* HashNode_new(void* key, void* value){
+static HashNode* HashNode_new(void* key, void* value){
 	HashNode* hnode = (HashNode*) malloc(sizeof(HashNode));
 	hnode->key = key;
 	hnode->value = value;
@@ -72,7 +72,7 @@ static void list_remove(HashNode** head, HashNode** hnode){
 	free(*hnode);
 }
 
-HashNode* list_search(HashNode* head, void* key, HashMapCmp compare){
+static HashNode* list_search(HashNode* head, void* key, HashMapCmp compare){
 	while(head != NULL && compare(head->key, key) != 0)
 		head = head->next;
 	return head;
@@ -107,7 +107,7 @@ int HashMap_ispresent(HashMap* hm, void* key){
 	return 1;
 }
 
-void rehash(HashMap* hm){
+static void rehash(HashMap* hm){
 	hm->capacity *= 2;
 	hm->size = 0;
 	HashNode** new_array = (HashNode**) calloc(hm->capacity, sizeof(HashNode*));
