@@ -28,6 +28,12 @@ Questa soluzione, rispetto alla seconda che verrà proposta, calcola la distanza
 
 La seconda soluzione, invece, calcola l'edit distance per ogni parola da correggere con ogni altra parola nel dizionario **ma**, nel momento in cui trova una parola con distanza minore, pulisce la lista e inserisce solo più parole con tale distanza (interrompendosi a edit distance pari a 0).
 Rispetto quindi alla prima soluzione non servono funzioni per il calcolo del minimo nella lista e per il riperimento di tali parole.
-D'altro canto, la funzione ``` clear() ```per svuotare l' ArrayList ha complessità pari a, definendo $`n`$ come il numero di elementi nella lista, $\Omicron(n)$.
+D'altro canto, la funzione ``` clear() ```per svuotare l' ArrayList ha complessità pari a, definendo $`n`$ come il numero di elementi nella lista, $`\Omicron(n)`$.
 
 Con la seconda soluzione, quindi, l'applicazione restituisce un risultato (compreso di lettura, caricamento e di stampa) in **20.32 secondi**.
+
+| Default aligned | Left aligned | Center aligned  | Right aligned  |
+|-----------------|:-------------|:---------------:|---------------:|
+| First body part | Second cell  | Third cell      | fourth cell    |
+| Second line     | foo          | **strong**      | baz            |
+| Third line      | quux         | baz             | bar            |
