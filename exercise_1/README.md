@@ -7,7 +7,7 @@ Questa è la tabella che riporta i dati ottenuti attraverso l'esecuzione dei due
 | **Quick-Sort**| Test Fallito | 20.85 secondi | 24.77 secondi |
 | **Insertion Sort**| Test Fallito | Test Fallito | Test Fallito |
 
-I dati relativi all' **Insertion-Sort** non fanno emergere perplessità: dal momento che la complessità di tale algoritmo nel caso peggiore è pari a $\Omicron(n^2)$, e sapendo che il file csv contiene 20.000.000 di record, il numero di operazioni risultanti è circa 400.000.000.000.000. E' quindi impensabile che esso possa finire prima di 10 minuti.
+I dati relativi all' **Insertion-Sort** non fanno emergere perplessità: dal momento che la complessità di tale algoritmo nel caso peggiore è pari a $`\Omicron(n^2)`$, e sapendo che il file csv contiene 20.000.000 di record, il numero di operazioni risultanti è circa 400.000.000.000.000. E' quindi impensabile che esso possa finire prima di 10 minuti.
 
 Per quanto riguarda il **Quick-Sort**, invece, solo i dati realtivi al secondo e al terzo campo sono coerenti con ciò che mi sarei aspettato, mentre il terzo, continuando ben oltre i 10 minuti, mi soprende.
 

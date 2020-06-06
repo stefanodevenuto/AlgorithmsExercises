@@ -14,4 +14,4 @@ I risultati ottenuti rispecchiano le aspettative:
 
 1. i tempi di caricamento dell'array sono inferiori a quelli della struttura HashMap (sia per l'accesso diretto sicuro dato dall'array sia per la funzione ``` rehash() ```, atta al reperimento più veloce delle associazioni nelle future interrogazioni).
 
-2. Il reperimento delle associazioni è più veloce nell' HashMap, dovuto ad un tempo di calcolo medio, per quanto riguarda la ricerca, pari a $\Omicron(1)$ (contro una complessità pari a $\Omicron(\log n)$ nella struttura sequenziale)
+2. Il reperimento delle associazioni è più veloce nell' HashMap, dovuto ad un tempo di calcolo medio, per quanto riguarda la ricerca, pari a $`\Omicron(1)`$ (contro una complessità pari a $`\Omicron(\log n)`$ nella struttura sequenziale)

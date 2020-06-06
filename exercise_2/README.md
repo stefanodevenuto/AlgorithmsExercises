@@ -24,10 +24,10 @@ Così facendo, prima di effettuare una nuova chiamata ricorsiva si controlla se 
 
 L'applicazione restituisce un risultato (compreso di lettura, caricamento e di stampa) in **22.16 secondi**.
 
-Questa soluzione, rispetto alla seconda che verrà proposta, calcola la distanza di edit per ogni parola da correggere con ogni altra parola nel dizionario (si interrompe prima solo se incontra una parola per cui l'edit distance è pari a 0) salvandola in una struttura ArrayList, calcola il minimo per ogni struttura così creata e restituisce la lista delle stringhe minime. La complessità quindi, definito $m$ come le parole nel file da correggere ed $n$ come le parole nel dizionario e supponendo che ogni parola abbia la stessa probabilità di essere selezionata (definendo quindi $p$ come $n/m$), è pari a  $\Omicron(n \cdot m) + \Omicron(p \cdot m)$.
+Questa soluzione, rispetto alla seconda che verrà proposta, calcola la distanza di edit per ogni parola da correggere con ogni altra parola nel dizionario (si interrompe prima solo se incontra una parola per cui l'edit distance è pari a 0) salvandola in una struttura ArrayList, calcola il minimo per ogni struttura così creata e restituisce la lista delle stringhe minime. La complessità quindi, definito $`m`$ come le parole nel file da correggere ed $`n`$ come le parole nel dizionario e supponendo che ogni parola abbia la stessa probabilità di essere selezionata (definendo quindi $p$ come $n/m$), è pari a  $`\Omicron(n \cdot m) + \Omicron(p \cdot m)`$.
 
 La seconda soluzione, invece, calcola l'edit distance per ogni parola da correggere con ogni altra parola nel dizionario **ma**, nel momento in cui trova una parola con distanza minore, pulisce la lista e inserisce solo più parole con tale distanza (interrompendosi a edit distance pari a 0).
 Rispetto quindi alla prima soluzione non servono funzioni per il calcolo del minimo nella lista e per il riperimento di tali parole.
-D'altro canto, la funzione ``` clear() ```per svuotare l' ArrayList ha complessità pari a, definendo $n$ come il numero di elementi nella lista, $\Omicron(n)$.
+D'altro canto, la funzione ``` clear() ```per svuotare l' ArrayList ha complessità pari a, definendo $`n`$ come il numero di elementi nella lista, $\Omicron(n)$.
 
 Con la seconda soluzione, quindi, l'applicazione restituisce un risultato (compreso di lettura, caricamento e di stampa) in **20.32 secondi**.
