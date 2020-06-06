@@ -2,13 +2,13 @@
 
 Dall'esecuzione avente come input il file hashes.csv risultano i seguenti tempi:
 
-| x | Tempo |
-|:---:|:---:|:---:|
-| **Caricamento HashMap** | 5.19 secondi |
+|                              |     Tempo    |
+|:----------------------------:|:------------:|
+| **Caricamento HashMap**      | 5.19 secondi |
 | **Caricamento Array Statico**| 1.31 secondi |
-| **Ordinamento Array**| 1.07 secondi |
-| **Reperimento HashMap**| 1.95 secondi |
-| **Reperimento Array**| 6.11 secondi |
+| **Ordinamento Array**        | 1.07 secondi |
+| **Reperimento HashMap**      | 1.95 secondi |
+| **Reperimento Array**        | 6.11 secondi |
 <br>
 I risultati ottenuti rispecchiano le aspettative: 
 
