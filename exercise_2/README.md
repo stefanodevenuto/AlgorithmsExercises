@@ -32,8 +32,3 @@ D'altro canto, la funzione ``` clear() ```per svuotare l' ArrayList ha complessi
 
 Con la seconda soluzione, quindi, l'applicazione restituisce un risultato (compreso di lettura, caricamento e di stampa) in **20.32 secondi**.
 
-| Default aligned | Left aligned | Center aligned  | Right aligned  |
-|-----------------|:-------------|:---------------:|---------------:|
-| First body part | Second cell  | Third cell      | fourth cell    |
-| Second line     | foo          | **strong**      | baz            |
-| Third line      | quux         | baz             | bar            |

@@ -2,7 +2,7 @@
 
 Dall'esecuzione avente come input il file hashes.csv risultano i seguenti tempi:
 
-| | Tempo |
+| x | Tempo |
 |:---:|:---:|:---:|
 | **Caricamento HashMap** | 5.19 secondi |
 | **Caricamento Array Statico**| 1.31 secondi |

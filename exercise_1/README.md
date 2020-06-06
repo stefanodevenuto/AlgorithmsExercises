@@ -2,7 +2,7 @@
 
 Questa è la tabella che riporta i dati ottenuti attraverso l'esecuzione dei due algoritmi sul dataset fornito.
 
-| |  Primo campo  |  Secondo Campo  |  Terzo Campo  |
+| x |  Primo campo  |  Secondo Campo  |  Terzo Campo  |
 |---|---|---|---|---|
 | **Quick-Sort**| Test Fallito | 20.85 secondi | 24.77 secondi |
 | **Insertion Sort**| Test Fallito | Test Fallito | Test Fallito |
@@ -18,6 +18,6 @@ Per questo motivo la *seconda versione* della funzione Partition divide l'array 
 
 Con questa nuova implementazione (che non altera la complessità asintotica) i tempi risultanti sono:
 
-| |  Primo campo  |  Secondo Campo  |  Terzo Campo  |
+| x |  Primo campo  |  Secondo Campo  |  Terzo Campo  |
 |---|---|---|---|---|
 | **Quick-Sort**| 20.83 secondi | 29.40 secondi | 32.94 secondi |
