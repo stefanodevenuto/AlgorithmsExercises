@@ -1,10 +1,10 @@
-package Test;
+package test;
 
 import org.junit.*;
 import static org.junit.Assert.assertEquals;
-import Lib.*;
+import lib.*;
 
-public class editDistanceTests{
+public class EditDistanceTests{
 
   @Test
   public void editDistanceEmptyStrings(){

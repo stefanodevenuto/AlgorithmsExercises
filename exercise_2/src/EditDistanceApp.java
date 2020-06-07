@@ -1,9 +1,9 @@
-package App;
+package app;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
-import Lib.EditDistance;
+import lib.EditDistance;
 
 // Structure to store Data File
 class StringDistance{
@@ -16,7 +16,7 @@ class StringDistance{
   }
 }
 
-public class editDistanceApp{
+public class EditDistanceApp{
 
   public static void printUsage(){
     System.out.println("Usage:\njava < path to correctme file > < dictionary path >");
