@@ -23,7 +23,7 @@ int Graph_dfs(Graph* g ,int node, int arrival, int* depth, int* weight_array);
  * Answer the given query by an adapted
  * version of the LCA alghoritm
  */
-int Graph_answer_query(Graph* g, int a, int b, int* depth, int* weight_array, int level, int weight, int test);
+int Graph_answer_query(Graph* g, int a, int b, int* depth, int* weight_array, int level, int weight);
 
 /*
  * Print the Graph

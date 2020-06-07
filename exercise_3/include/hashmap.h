@@ -7,11 +7,11 @@ typedef int (*HashMapCmp)(void*, void*) ;
 /*
  * Create a new HashMap.
  * Parameters:
- * 	  HashFunction is pointer to a function that
- *	  return a number given a key.
+ *    HashFunction is pointer to a function that
+ *    return a number given a key.
  *    HashMapCmp is a pointer to a function that
- *	  compare two keys in the hashmap. The library assumes
- *	  that the function returns 0 if they are equal.
+ *    compare two keys in the hashmap. The library assumes
+ *    that the function returns 0 if they are equal.
  */
 HashMap* HashMap_new(HashFunction, HashMapCmp);
 
@@ -46,7 +46,7 @@ void HashMap_remove(HashMap* hm, void* key);
 /*
  * Get the value of an association given a key.
  * Note: it returns 0 if the association with
- * 		 that key is not present in the hashmap. 
+ *     that key is not present in the hashmap. 
  */
 void* HashMap_get(HashMap* hm, void* key);
 
